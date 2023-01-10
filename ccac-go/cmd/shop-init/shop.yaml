@@ -1,0 +1,119 @@
+- id: "5d9e0173c1305d2a54eb431a"
+  sku: "COSTSM01"
+  rating: 2
+  type: t-shirts
+  options:
+    available_colors: [ "sand", "black" ]
+    available_sizes: [ "S", "M", "L", "XL" ]
+  categories: ["clothes"]
+  title: CousCous a Colazione T-Shirt
+  description: La maglia ufficiale dell'EP Luce in puro cotone
+  images:
+  - https://couscousacolazione.com/api/images/shop/tshirt1.jpg
+  - https://couscousacolazione.com/api/images/shop/tshirt2.jpg
+  - https://couscousacolazione.com/api/images/shop/tshirt3.jpg
+  - https://couscousacolazione.com/api/images/shop/tshirt4.jpg
+  - https://couscousacolazione.com/api/images/shop/tshirt5.jpg
+  price:
+    value: "15.00"
+    currency: EUR
+  variations:
+    - sku: COSTSSW01
+      quantity: 5
+      options:
+        color: "sand"
+        size: "S"
+    - sku: COSTSMW01
+      quantity: 5
+      options:
+        color: "sand"
+        size: "M"
+    - sku: COSTSLW01
+      quantity: 5
+      options:
+        color: "sand"
+        size: "L"
+    - sku: COSTSXLW01
+      quantity: 5
+      options:
+        color: "sand"
+        size: "XL"
+    - sku: COSTSSG01
+      quantity: 10
+      options:
+        color: "black"
+        size: "S"
+    - sku: COSTSMG01
+      quantity: 10
+      options:
+        color: "black"
+        size: "M"
+    - sku: COSTSLG01
+      quantity: 10
+      options:
+        color: "black"
+        size: "L"
+    - sku: COSTSXLG01
+      quantity: 10
+      options:
+        color: "black"
+        size: "XL"
+- id: "addf0d73c1305d2a54eb431b"
+  sku: "COSSS01"
+  rating: 2
+  type: "shopping-bag"
+  options:
+    available_colors: [ "sand", "black", "cyan" ]
+  categories: ["clothes"]
+  title: CousCous a Colazione Shopping Bag
+  description: L'eco bag ufficiale dell'EP Luce
+  images:
+    - https://couscousacolazione.com/api/images/shop/ecobag6.jpg
+    - https://couscousacolazione.com/api/images/shop/ecobag1.jpg
+    - https://couscousacolazione.com/api/images/shop/ecobag2.jpg
+    - https://couscousacolazione.com/api/images/shop/ecobag3.jpg
+    - https://couscousacolazione.com/api/images/shop/ecobag4.jpg
+    - https://couscousacolazione.com/api/images/shop/ecobag5.jpg
+    - https://couscousacolazione.com/api/images/shop/ecobag7.jpg
+  price:
+    value: "10.00"
+    currency: EUR
+  variations:
+    - sku: COSSSS01
+      quantity: 5
+      options:
+        color: "sand"
+    - sku: COSSSC01
+      quantity: 5
+      options:
+        color: "cyan"
+    - sku: COSSSB01
+      quantity: 5
+      options:
+        color: "black"
+- id: "acbf0d73c1305d2a54eb431b"
+  sku: "COSCD01"
+  rating: 2
+  type: "cd"
+  categories: ["cd"]
+  title: CousCous a Colazione CD
+  description: Il CD ufficiale dell'EP Luce
+  images:
+    - https://couscousacolazione.com/api/images/shop/cd1.jpg
+    - https://couscousacolazione.com/api/images/shop/cd2.jpg
+  price:
+    value: "10.00"
+    currency: EUR
+  variations:
+    - sku: COSSSS01
+      quantity: 5
+      options:
+        color: "sand"
+    - sku: COSSSC01
+      quantity: 5
+      options:
+        color: "cyan"
+    - sku: COSSSB01
+      quantity: 5
+      options:
+        color: "black"
