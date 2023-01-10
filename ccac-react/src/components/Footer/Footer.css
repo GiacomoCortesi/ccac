@@ -1,0 +1,12 @@
+.footer-icons {
+    width: auto;
+    height: 20px;
+}
+
+.filter-black {
+    filter: invert(0%) sepia(0%) saturate(16%) hue-rotate(338deg) brightness(93%) contrast(107%);
+}
+
+.filter-white {
+    filter: invert(93%) sepia(7%) saturate(0%) hue-rotate(49deg) brightness(105%) contrast(107%);
+}

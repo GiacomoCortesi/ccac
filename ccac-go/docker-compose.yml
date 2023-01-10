@@ -1,0 +1,49 @@
+version: "3.7"
+
+services:
+  backend:
+    container_name: ccac-backend
+    build:
+      context: .
+    environment:
+      - CCAC_HOST=${CCAC_HOST-0.0.0.0}
+      - CCAC_PORT=${CCAC_PORT-80}
+      - CCAC_DSN=${CCAC_DSN-mongodb://ccac-mongo:27017}
+    networks:
+      - bridge-net
+    restart: always
+
+  mongodb:
+    container_name: ccac-mongo
+    image: bitnami/mongodb
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - /var/ccac/mongodb:/bitnami/mongodb
+    networks:
+      - bridge-net
+    restart: always
+
+  mongo-express:
+    image: mongo-express
+    container_name: ccac-mongo-express
+    environment:
+      - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
+      - ME_CONFIG_MONGODB_SERVER=ccac-mongo
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    ports:
+      - "8081:8081"
+    networks:
+      - bridge-net
+    restart: always
+    depends_on:
+      - mongodb
+
+networks:
+  bridge-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.15.0.0/24
