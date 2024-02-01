@@ -181,7 +181,7 @@ export default function ShopItem() {
                             {/*        setRating(newValue);*/}
                             {/*    }}*/}
                             {/*/>*/}
-                            <Button onClick={onCartButtonClick} sx={{marginTop: "1em"}} variant="outlined">Add To Cart</Button>
+                            <Button onClick={onCartButtonClick} sx={{ margin: "1em 0em 1.5em 0em"}} variant="outlined">Add To Cart</Button>
                             {<ShopSnackbar handleClose={handleSnackBarClose} open={snackBarOpen} message={snackBarMessage}/>}
                         </Box>
                     </Grid>

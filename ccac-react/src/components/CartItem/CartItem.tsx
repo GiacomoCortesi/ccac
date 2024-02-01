@@ -50,7 +50,7 @@ export default function CartItem({product_id, sku, quantity, total}: ICartItem) 
                     })
                 } />
                 <IconButton
-                    sx={{margin: "0em 2em 0em 2em"}}
+                    sx={{margin: "0em 2em 0em 2em", display: {xs: "none", md:"flex"}}}
                     disableRipple={true}
                     aria-label={`user cart`}
                     onClick={() => onItemDeleteClick(quantity)}

@@ -1,9 +1,9 @@
-import {createTheme} from "@mui/material";
+import {createTheme, responsiveFontSizes} from "@mui/material";
 import '../App.css'
 // @ts-ignore
 import TypeWriter from '../static/fonts/zai_SoftItalicTypewriter.ttf';
 
-export const customTheme = createTheme({
+export let customTheme = createTheme({
     palette: {
         primary: {
             main: '#b98d1c',
@@ -28,3 +28,6 @@ export const customTheme = createTheme({
         fontFamily: 'TypeWriter',
     },
 });
+
+customTheme = responsiveFontSizes(customTheme);
+

@@ -60,7 +60,7 @@ export default function Cart() {
             }
         <Typography marginBottom={3}>Totale: {data?.total?.value} {data?.total?.currency}</Typography>
         </Box>
-            <Button disabled={isEmptyCart(data)} sx={{marginLeft: 1.75}} onClick={handleClick}>
+            <Button disabled={isEmptyCart(data)} sx={{marginLeft: 1.75, marginBottom: 2}} onClick={handleClick}>
                 <Typography variant={"h5"}>Paga con Paypal</Typography>
             </Button>
         </Box>}
