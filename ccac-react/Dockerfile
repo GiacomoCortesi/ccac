@@ -1,5 +1,5 @@
 FROM node:20-alpine3.17 as builder
-LABEL maintainer="Giacomo Cortesi <gcortesi@jmawireless.com>"
+LABEL maintainer="Giacomo Cortesi <giacomo.cortesi1993@gmail.com>"
 WORKDIR /app
 COPY package*.json /app/
 RUN npm ci
