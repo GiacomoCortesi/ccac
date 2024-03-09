@@ -1,8 +1,7 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import * as React from 'react';
 
 interface ShopSnackBarProps {
     open: boolean
@@ -10,7 +9,7 @@ interface ShopSnackBarProps {
     handleClose: any;
 }
 export default function ShopSnackbar(props: ShopSnackBarProps) {
-    const {open, message, handleClose} = props;
+    const { open, message, handleClose } = props;
     const action = (
         <React.Fragment>
             <IconButton
@@ -32,7 +31,7 @@ export default function ShopSnackbar(props: ShopSnackBarProps) {
                 onClose={handleClose}
                 message={message}
                 action={action}
-                anchorOrigin={{vertical: "bottom", horizontal: "center"}}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             />
         </div>
     );

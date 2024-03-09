@@ -1,4 +1,4 @@
-import {IPrice} from "./product";
+import { IPrice } from "./product";
 
 export interface IShipping {
     method: string,

@@ -1,5 +1,5 @@
-import {createTheme} from "@mui/material";
-import '../App.css'
+import { createTheme } from "@mui/material";
+import '../App.css';
 // @ts-ignore
 import TypeWriter from '../static/fonts/zai_SoftItalicTypewriter.ttf';
 

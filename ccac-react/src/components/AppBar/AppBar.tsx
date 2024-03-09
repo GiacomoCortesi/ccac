@@ -4,8 +4,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import {Link as RouterLink, useNavigate} from "react-router-dom";
-import {Switch, Typography, useTheme} from "@mui/material";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Switch, Typography, useTheme } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconButton from "@mui/material/IconButton";
 import HomeIcon from '@mui/icons-material/Home';
@@ -25,16 +25,16 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <AppBar style={{ background: 'transparent', boxShadow: 'none'}} sx={{height: "90px"}} position="static">
+        <AppBar style={{ background: 'transparent', boxShadow: 'none' }} sx={{ height: "90px" }} position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Switch
-                        sx={{display: 'none'}}
+                        sx={{ display: 'none' }}
                         checked={checked}
                         onChange={handleChange}
                         inputProps={{ 'aria-label': 'controlled' }}
                     />
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 variant="text"
@@ -42,19 +42,19 @@ const ResponsiveAppBar = () => {
                                 disableRipple
                                 key={page}
                                 onClick={() => handleMenuItemClick(page)}
-                                sx={{my: 2, color: 'primary', display: 'block'}}
+                                sx={{ my: 2, color: 'primary', display: 'block' }}
                             >
                                 <Typography variant="h5">{page}</Typography>
                             </Button>
                         ))}
                     </Box>
-                    <Box sx={{display: {xs: 'block', md: 'none'}}}>
+                    <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                         <RouterLink to={`/`}>
                             <IconButton
-                            aria-label={`home button`}
-                            disableRipple={true}
+                                aria-label={`home button`}
+                                disableRipple={true}
                             >
-                                <HomeIcon color={"primary"} fontSize={"large"}/>
+                                <HomeIcon color={"primary"} fontSize={"large"} />
                             </IconButton>
                         </RouterLink>
                     </Box>
@@ -64,7 +64,7 @@ const ResponsiveAppBar = () => {
                                 aria-label={`user cart`}
                                 disableRipple={true}
                             >
-                                <ShoppingCartIcon color={"primary"} fontSize={"large"}/>
+                                <ShoppingCartIcon color={"primary"} fontSize={"large"} />
                             </IconButton>
                         </RouterLink>
                     </Box>

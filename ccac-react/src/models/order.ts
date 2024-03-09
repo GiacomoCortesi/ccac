@@ -1,6 +1,6 @@
-import {IShipping} from "./shipping";
-import {IPrice} from "./product";
-import {ICart} from "./cart";
+import { ICart } from "./cart";
+import { IPrice } from "./product";
+import { IShipping } from "./shipping";
 
 export interface IOrder {
     id: string,

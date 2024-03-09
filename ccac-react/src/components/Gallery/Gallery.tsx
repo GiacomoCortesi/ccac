@@ -1,7 +1,7 @@
-import {useGetGallery} from "../../services/api-gallery";
-import React, {Fragment} from "react";
-import {ImageList, ImageListItem} from "@mui/material";
+import { ImageList, ImageListItem } from "@mui/material";
 import Box from "@mui/material/Box";
+import { Fragment } from "react";
+import { useGetGallery } from "../../services/api-gallery";
 import DrawerAppBar from "../AppBar/DrawerAppBar";
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
@@ -9,9 +9,8 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
     console.log("columns", cols)
     return {
         src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-        srcSet: `${image}?w=${size * cols}&h=${
-            size * rows
-        }&fit=crop&auto=format&dpr=2 2x`,
+        srcSet: `${image}?w=${size * cols}&h=${size * rows
+            }&fit=crop&auto=format&dpr=2 2x`,
     };
 }
 export default function Gallery() {
@@ -26,27 +25,27 @@ export default function Gallery() {
 
     return (
         <Fragment>
-            <DrawerAppBar/>
-        <Box sx={{display:"flex", justifyContent: "center"}}>
-            { itemData &&
-                <ImageList
-                    sx={{width: "80%", height: "80%"}}
-                    cols={2}
+            <DrawerAppBar />
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+                {itemData &&
+                    <ImageList
+                        sx={{ width: "80%", height: "80%" }}
+                        cols={2}
                     // variant={"quilted"}
                     >
-                    {itemData.map((item) => (
-                        <ImageListItem key={item.img}
-                                       // cols={item.cols || 1} rows={item.rows || 1}
-                        >
-                            <img
-                                {...srcset(item.img, 120, 6,6)}
-                                alt={item.title}
-                                loading="lazy"
-                            />
-                        </ImageListItem>
-                    ))}
-            </ImageList>}
-        </Box>
+                        {itemData.map((item) => (
+                            <ImageListItem key={item.img}
+                            // cols={item.cols || 1} rows={item.rows || 1}
+                            >
+                                <img
+                                    {...srcset(item.img, 120, 6, 6)}
+                                    alt={item.title}
+                                    loading="lazy"
+                                />
+                            </ImageListItem>
+                        ))}
+                    </ImageList>}
+            </Box>
         </Fragment>
     );
 }

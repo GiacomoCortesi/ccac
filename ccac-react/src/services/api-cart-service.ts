@@ -1,9 +1,9 @@
 import useSWR from 'swr';
 
-import {ICart} from "../models/cart";
-import {baseUrl} from "./api-product-service";
 import axios from "axios";
 import useSWRMutation from "swr/mutation";
+import { ICart } from "../models/cart";
+import { baseUrl } from "./api-product-service";
 
 export function useGetCart() {
     const fetcher = (url: string) => axios.get<ICart>(url, { withCredentials: true }).then(res => res.data)
@@ -12,7 +12,7 @@ export function useGetCart() {
 
 export function useDeleteCartItem() {
     // @ts-ignore
-    const fetcher = (url: string, {arg}) => axios.delete(url, {
+    const fetcher = (url: string, { arg }) => axios.delete(url, {
         withCredentials: true,
         data: JSON.stringify(arg)
     })
@@ -21,7 +21,7 @@ export function useDeleteCartItem() {
 
 export function useAddToCart() {
     // @ts-ignore
-    const fetcher = (url: string, {arg}) => axios.post<ICart>(url, JSON.stringify(arg) ,
+    const fetcher = (url: string, { arg }) => axios.post<ICart>(url, JSON.stringify(arg),
         {
             withCredentials: true,
             headers: {

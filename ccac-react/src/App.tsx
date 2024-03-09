@@ -1,16 +1,15 @@
-import React from 'react';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import {RouterProvider} from 'react-router-dom';
-import {CssBaseline, ThemeProvider} from '@mui/material';
-import {customTheme} from "./global/CustomTheme";
-import {router} from "./Router";
+import { router } from "./Router";
+import { customTheme } from "./global/CustomTheme";
 
 function App() {
   return (
-          <ThemeProvider theme={customTheme}>
-              <CssBaseline />
-              <RouterProvider router={router} />
-          </ThemeProvider>
+    <ThemeProvider theme={customTheme}>
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }
 

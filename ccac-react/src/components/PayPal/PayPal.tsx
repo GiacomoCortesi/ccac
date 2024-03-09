@@ -1,10 +1,10 @@
-import {PayPalButtons, PayPalScriptProvider} from "@paypal/react-paypal-js";
 import Box from "@mui/material/Box";
-import "./PayPal.css"
-import {useGetCart} from "../../services/api-cart-service";
-import {useCompleteOrder, useCreateOrder} from "../../services/api-order-service";
-import {useLocation, useNavigate} from "react-router-dom";
-import {IOrder} from "../../models/order";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useLocation, useNavigate } from "react-router-dom";
+import { IOrder } from "../../models/order";
+import { useGetCart } from "../../services/api-cart-service";
+import { useCompleteOrder, useCreateOrder } from "../../services/api-order-service";
+import "./PayPal.css";
 const PayPal = (props: any) => {
     const { data, error, isLoading } = useGetCart()
     const createOrderTrigger = useCreateOrder().trigger
@@ -13,18 +13,18 @@ const PayPal = (props: any) => {
 
     let orderID = ''
 
-    const {state} = useLocation()
-    const {shippingMethod} = state
+    const { state } = useLocation()
+    const { shippingMethod } = state
 
     const onApprove = (data: any) => {
-            return completeOrderTrigger({
-                "id": orderID
-            }).then((res) => {
-                console.log("successfully approved order",res)
-                navigate('/order/' + orderID);
-            }).catch((res) => {
-                console.log("failure approving order: ", res)
-            })
+        return completeOrderTrigger({
+            "id": orderID
+        }).then((res) => {
+            console.log("successfully approved order", res)
+            navigate('/order/' + orderID);
+        }).catch((res) => {
+            console.log("failure approving order: ", res)
+        })
     }
 
     const createOrder = (orderData: any, actions: any) => {
@@ -34,7 +34,7 @@ const PayPal = (props: any) => {
             "shipping": {
                 "method": shippingMethod
             },
-        }).then((order: IOrder)=> {
+        }).then((order: IOrder) => {
             orderID = order.id
             console.log("orderID", order.id)
             console.log("stored orderID", orderID)
@@ -42,19 +42,19 @@ const PayPal = (props: any) => {
         })
     }
 
-    return(
-        <Box style={{display: "flex", justifyContent: "center", alignItems: "center", margin: "5em"}}>
+    return (
+        <Box style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "5em" }}>
             {
                 data?.total.value &&
-                <PayPalScriptProvider options={{"client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID || "", currency: data?.total?.currency}}>
-                <PayPalButtons
-                    className={"paypal-button"}
-                    createOrder={createOrder}
-                    onApprove={onApprove}
-                    onError={(data: any) => navigate("/cart")}
-                    onCancel={(data: any) => navigate("/cart")}
-                />
-            </PayPalScriptProvider>}
+                <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID || "", currency: data?.total?.currency }}>
+                    <PayPalButtons
+                        className={"paypal-button"}
+                        createOrder={createOrder}
+                        onApprove={onApprove}
+                        onError={(data: any) => navigate("/cart")}
+                        onCancel={(data: any) => navigate("/cart")}
+                    />
+                </PayPalScriptProvider>}
         </Box>
     )
 }

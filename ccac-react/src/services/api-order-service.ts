@@ -1,8 +1,8 @@
-import useSWRMutation from "swr/mutation";
-import {baseUrl} from "./api-product-service";
 import axios from "axios";
 import useSWR from "swr";
-import {IOrder} from "../models/order";
+import useSWRMutation from "swr/mutation";
+import { IOrder } from "../models/order";
+import { baseUrl } from "./api-product-service";
 
 export function useGetOrder(orderID: string) {
     const fetcher = (url: string) => axios.get<IOrder>(url, { withCredentials: true }).then(res => res.data)
@@ -10,7 +10,7 @@ export function useGetOrder(orderID: string) {
 }
 
 // @ts-ignore
-const fetchPOST = (url: string, {arg}) => axios.post(url, JSON.stringify(arg) ,
+const fetchPOST = (url: string, { arg }) => axios.post(url, JSON.stringify(arg),
     {
         headers: {
             method: 'POST',

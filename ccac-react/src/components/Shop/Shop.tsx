@@ -1,14 +1,14 @@
-import * as React from 'react';
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import {Typography, useMediaQuery, useTheme} from "@mui/material";
-import {Link as RouterLink} from "react-router-dom";
-import {useGetAllProducts} from "../../services/api-product-service";
-import {Fragment} from "react";
+import * as React from 'react';
+import { Fragment } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { useGetAllProducts } from "../../services/api-product-service";
 import AppBar from "../AppBar/AppBar";
 import ImageHover from "../ImageHover/ImageHover";
-import Box from "@mui/material/Box";
 import Loading from "../Loading/Loading";
 
 export default function Shop() {
@@ -30,25 +30,25 @@ export default function Shop() {
     }
     return (
         <Fragment>
-            <AppBar/>
-            {isLoading && <Loading/>}
+            <AppBar />
+            {isLoading && <Loading />}
             {data &&
-            <ImageList cols={getImageListCols()}>
-                {Array.isArray(data) && data.map((item: any, index: number) => (
-                    <Box key={index} sx={{margin: "5em 0 5em 0"}}>
-                        <ImageListItem key={index} >
-                        <RouterLink style={{display: "flex", justifyContent: "center"}} to={`/products/${item.id}`}>
-                            <ImageHover src={item.images[0]} title={item.title}/>
-                        </RouterLink>
-                        <ImageListItemBar
-                            subtitle={<span style={{display: "flex", justifyContent: "center"}}><Typography variant={"body2"}>{item.description}</Typography></span>}
-                            position="below"
-                            title={<span style={{display: "flex", justifyContent: "center"}}><Typography variant={"body1"}>{item.title}</Typography></span>}
-                        />
-                        </ImageListItem>
-                    </Box>
-                ))}
-            </ImageList>
+                <ImageList cols={getImageListCols()}>
+                    {Array.isArray(data) && data.map((item: any, index: number) => (
+                        <Box key={index} sx={{ margin: "5em 0 5em 0" }}>
+                            <ImageListItem key={index} >
+                                <RouterLink style={{ display: "flex", justifyContent: "center" }} to={`/products/${item.id}`}>
+                                    <ImageHover src={item.images[0]} title={item.title} />
+                                </RouterLink>
+                                <ImageListItemBar
+                                    subtitle={<span style={{ display: "flex", justifyContent: "center" }}><Typography variant={"body2"}>{item.description}</Typography></span>}
+                                    position="below"
+                                    title={<span style={{ display: "flex", justifyContent: "center" }}><Typography variant={"body1"}>{item.title}</Typography></span>}
+                                />
+                            </ImageListItem>
+                        </Box>
+                    ))}
+                </ImageList>
             }
         </Fragment>
     );

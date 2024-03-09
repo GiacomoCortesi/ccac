@@ -1,15 +1,14 @@
-import {createBrowserRouter} from "react-router-dom";
-import Home from "./components/Home/Home";
-import ErrorPage from "./components/ErrorPage/ErrorPage";
+import { createBrowserRouter } from "react-router-dom";
+import Cart from "./components/Cart/Cart";
 import Contact from "./components/Contact/Contact";
-import Tour from "./components/Tour/Tour";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
+import Gallery from "./components/Gallery/Gallery";
+import Home from "./components/Home/Home";
+import Order from "./components/Order/Order";
+import PayPal from "./components/PayPal/PayPal";
 import Shop from "./components/Shop/Shop";
 import ShopItem from "./components/ShopItem/ShopItem";
-import Cart from "./components/Cart/Cart";
-import Order from "./components/Order/Order";
-import Gallery from "./components/Gallery/Gallery";
-import React from "react";
-import PayPal from "./components/PayPal/PayPal";
+import Tour from "./components/Tour/Tour";
 
 export const router = createBrowserRouter([
     {
@@ -19,42 +18,42 @@ export const router = createBrowserRouter([
     },
     {
         path: 'home',
-        element: <Home/>
+        element: <Home />
     },
     {
         path: 'contact',
-        element: <Contact/>
+        element: <Contact />
     },
     {
         path: 'tour',
-        element: <Tour/>
+        element: <Tour />
     },
     {
         path: 'contact',
-        element: <Contact/>
+        element: <Contact />
     },
     {
         path: 'products',
-        element: <Shop/>
+        element: <Shop />
     },
     {
         path: 'products/:id',
-        element: <ShopItem/>
+        element: <ShopItem />
     },
     {
         path: 'cart',
-        element: <Cart/>
+        element: <Cart />
     },
     {
         path: 'order/:id',
-        element: <Order/>
+        element: <Order />
     },
     {
         path: "gallery",
-        element: <Gallery/>
+        element: <Gallery />
     },
     {
         path: "pay",
-        element: <PayPal/>
+        element: <PayPal />
     }
 ]);
