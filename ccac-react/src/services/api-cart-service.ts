@@ -12,7 +12,7 @@ export function useGetCart() {
 }
 
 export function useDeleteCartItem() {
-  const fetcher = (url: string, { arg }) =>
+  const fetcher = (url: string, { arg }: any) =>
     axios.delete(url, {
       withCredentials: true,
       data: JSON.stringify(arg),
@@ -21,7 +21,7 @@ export function useDeleteCartItem() {
 }
 
 export function useAddToCart() {
-  const fetcher = (url: string, { arg }) =>
+  const fetcher = (url: string, { arg }: any) =>
     axios
       .post<ICart>(url, JSON.stringify(arg), {
         withCredentials: true,

@@ -30,6 +30,7 @@ export default function CartItem({
   const { trigger } = useDeleteCartItem()
   const addToCartTrigger = useAddToCart().trigger
   const onItemDeleteClick = (quantityToDelete: number) => {
+    //@ts-ignore
     trigger({
       sku: sku,
       product_id: product_id,
@@ -38,6 +39,7 @@ export default function CartItem({
     mutate(product_id)
   }
   const onItemAddClick = () => {
+    //@ts-ignore
     addToCartTrigger({
       sku: sku,
       product_id: product_id,

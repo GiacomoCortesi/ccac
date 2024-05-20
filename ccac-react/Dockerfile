@@ -1,14 +1,14 @@
 FROM node:20-alpine3.17 as builder
 LABEL maintainer="Giacomo Cortesi <giacomo.cortesi1993@gmail.com>"
 WORKDIR /app
-COPY package*.json /app/
+COPY package*.json .
 RUN npm ci
 COPY . .
 RUN npm run build
 
 FROM nginx:stable-alpine
 
-COPY --from=builder /app/build /usr/share/nginx/html/ccac
+COPY --from=builder /app/dist /usr/share/nginx/html/ccac
 
 EXPOSE 80
 EXPOSE 443

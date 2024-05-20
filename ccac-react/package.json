@@ -59,6 +59,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svgr": "^4.2.0"
   }
 }

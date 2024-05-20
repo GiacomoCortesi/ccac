@@ -10,7 +10,7 @@ export function useGetOrder(orderID: string) {
   return useSWR(baseUrl + '/order/' + orderID, fetcher)
 }
 
-const fetchPOST = (url: string, { arg }) =>
+const fetchPOST = (url: string, { arg }: any) =>
   axios
     .post(url, JSON.stringify(arg), {
       headers: {

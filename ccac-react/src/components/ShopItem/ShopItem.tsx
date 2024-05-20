@@ -53,6 +53,7 @@ export default function ShopItem() {
       })
     }
 
+    //@ts-ignore
     trigger({
       sku: productVariation ? productVariation.sku : data?.sku,
       quantity: parseInt(quantity),
