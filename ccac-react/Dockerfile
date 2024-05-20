@@ -6,10 +6,10 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:1.21.6-alpine
+FROM nginx:stable-alpine
 
 COPY --from=builder /app/build /usr/share/nginx/html/ccac
- 
+
 EXPOSE 80
 EXPOSE 443
 

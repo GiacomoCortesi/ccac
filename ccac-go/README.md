@@ -21,11 +21,24 @@ EVENTBRITE_TOKEN
 // order payment from the shop
 PAYPAL_CLIENT_ID
 PAYPAL_CLIENT_SECRET
-```
 
-NOTE: Make sure to use sandbox Paypal client ID and secret when in development
+// Following env variables can be overriden by application CLI flags
+// host the app server listens to
+CCAC_HOST
+// port the app server listens to
+CCAC_PORT
+// data source connection string, make sure to correctly use mongodb connection string syntax
+CCAC_DSN
+```
+NOTE: Make sure to use sandbox Paypal client ID and secret when in development, and to run with -debug flag set
 
 ## Docker Compose
+By default the application creates and use a default ccac mongodb user with permissions restricted to the ccac database.
+By default two mongodb users are created:
+ - root/password - admin user
+ - ccac/password - user with permissions on ccac database only
+
+For production use, make sure to configure docker-compose environment variables with proper secure credentials.
 
 Run with docker compose:
 ```

@@ -1,5 +1,5 @@
 FROM golang:1.21.2-alpine3.17 AS builder
-LABEL MAINTAINER="Giacomo Cortesi <gcortesi@jmawireless.com>"
+LABEL MAINTAINER="Giacomo Cortesi <giacomo.cortesi1993@gmail.com>"
 
 WORKDIR /app/src
 
@@ -16,6 +16,7 @@ COPY service/ service/
 COPY go.mod .
 COPY go.sum .
 
+# Run unit tests
 RUN go test ./... -v
 
 RUN CGO_ENABLED=0 go build -o /app/build/ccac /app/src/cmd/web/main.go

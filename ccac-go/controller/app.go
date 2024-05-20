@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-	"sync"
 )
 
 const (
@@ -22,8 +21,6 @@ type App struct {
 	Cart    CartController
 	Gallery GalleryController
 	Order   OrderController
-
-	m sync.Mutex
 }
 
 func New(host string, port string, product ProductController, event EventController, cc CartController, gc GalleryController, oc OrderController) *App {

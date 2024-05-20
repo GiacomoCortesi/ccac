@@ -1,35 +1,35 @@
 .bottom-left {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
 }
 
 .bottom-right {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 .top-left {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
 }
 
 .top-right {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 .top-center {
-    position: fixed;
-    top: 20px;
-    right: 50%;
+  position: fixed;
+  top: 20px;
+  right: 50%;
 }
 
 .bottom-center {
-    position: fixed;
-    bottom: 20px;
-    right: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 50%;
 }

@@ -35,11 +35,11 @@ server {
     server_name couscousacolazione.com;
     root /usr/share/nginx/html/ccac;
     include /etc/nginx/location.d/*.conf;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
+    include /etc/letsencrypt/*[.]conf;
 
-    ssl_certificate /etc/letsencrypt/live/couscousacolazione.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/couscousacolazione.com/privkey.pem;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    ssl_certificate $NGINX_CERT_FILE;
+    ssl_certificate_key $NGINX_KEY_FILE;
+    ssl_dhparam $NGINX_DHPARAM_FILE;
 }
 EOF
 }

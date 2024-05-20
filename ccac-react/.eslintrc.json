@@ -1,0 +1,20 @@
+{
+    "root": true,
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "eslint:recommended",
+      "prettier"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": 1,
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    },
+    "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+    "env": {
+        "jest": true,
+        "browser": true
+      }    
+  }
+  

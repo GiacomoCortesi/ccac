@@ -2,13 +2,14 @@ package main
 
 import (
 	"flag"
+	"log"
+	"os"
+
 	"github.com/ccac-go/controller"
 	"github.com/ccac-go/inmemrepo"
 	"github.com/ccac-go/mongodbrepo"
 	"github.com/ccac-go/pkg/eventbrite"
 	"github.com/ccac-go/service"
-	"log"
-	"os"
 )
 
 func main() {
@@ -18,7 +19,6 @@ func main() {
 	var debugMode = flag.Bool("debug", false, "run the application in debug mode")
 
 	flag.Parse()
-
 	db, err := mongodbrepo.New(*dsn)
 	if err != nil {
 		log.Fatal(err)

@@ -8,37 +8,47 @@ services:
     environment:
       - CCAC_HOST=${CCAC_HOST-0.0.0.0}
       - CCAC_PORT=${CCAC_PORT-80}
-      - CCAC_DSN=${CCAC_DSN-mongodb://ccac-mongo:27017}
+      - CCAC_DSN=${CCAC_DSN-mongodb://ccac:password@ccac-mongo:27017}
+      - PAYPAL_CLIENT_ID=${PAYPAL_CLIENT_ID-YOURPAYPALCLIENTID}
+      - PAYPAL_CLIENT_SECRET=${PAYPAL_CLIENT_SECRET-YOURPAYPALCLIENTSECRET}
     networks:
       - bridge-net
     restart: always
 
-  mongodb:
+  mongo:
     container_name: ccac-mongo
-    image: bitnami/mongodb
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+    image: mongo
+    ports:
+      - 27017:27017
     volumes:
-      - /var/ccac/mongodb:/bitnami/mongodb
+      - mongo-data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     networks:
       - bridge-net
     restart: always
-
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_CCAC_DB-ccac}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_ROOT_USERNAME-root}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_ROOT_PASSWORD-password}
+      - MONGO_CCAC_USERNAME=${MONGO_CCAC_USERNAME-ccac}
+      - MONGO_CCAC_PASSWORD=${MONGO_CCAC_PASSWORD-password}
   mongo-express:
     image: mongo-express
     container_name: ccac-mongo-express
     environment:
       - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
       - ME_CONFIG_MONGODB_SERVER=ccac-mongo
-      - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_EXPRESS_USERNAME-admin}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASSWORD-admin}
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGODB_ROOT_USERNAME-root}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGODB_ROOT_PASSWORD-password}
     ports:
       - "8081:8081"
     networks:
       - bridge-net
     restart: always
     depends_on:
-      - mongodb
+      - mongo
 
 networks:
   bridge-net:
@@ -47,3 +57,6 @@ networks:
       driver: default
       config:
         - subnet: 172.15.0.0/24
+
+volumes:
+  mongo-data:

@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"flag"
-	"github.com/ccac-go/controller"
-	"github.com/ccac-go/domain"
-	"gopkg.in/yaml.v3"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/ccac-go/controller"
+	"github.com/ccac-go/domain"
+	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -21,6 +22,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("error opening/creating shop file: %v", err)
 	}
+	log.Println("successfully opened shop file ", *f)
+
 	defer file.Close()
 	var shop []domain.Product
 	err = yaml.NewDecoder(file).Decode(&shop)
@@ -41,6 +44,7 @@ func main() {
 	if res.StatusCode < 200 || res.StatusCode >= 300 {
 		log.Fatalf("error in delete all product request to: %s, status: %s", req.URL.String(), res.Status)
 	}
+	log.Println("successfully deleted existing products")
 
 	for _, product := range shop {
 		b, _ := json.Marshal(&product)
@@ -52,5 +56,5 @@ func main() {
 			log.Fatalf("error in create product request, status: %s", res.Status)
 		}
 	}
-
+	log.Printf("successfully initialized shop with products: \n %+v ", shop)
 }

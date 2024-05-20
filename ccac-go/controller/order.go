@@ -1,9 +1,10 @@
 package controller
 
 import (
+	"net/http"
+
 	"github.com/ccac-go/domain"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 type OrderController interface {
@@ -33,7 +34,6 @@ func (o orderController) CreateOrder(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, order)
-	return
 }
 
 func (o orderController) CompleteOrder(c *gin.Context) {
@@ -50,7 +50,6 @@ func (o orderController) CompleteOrder(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusNoContent, nil)
-	return
 }
 
 func (o orderController) GetOrderByID(c *gin.Context) {
@@ -61,6 +60,4 @@ func (o orderController) GetOrderByID(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, order)
-
-	return
 }

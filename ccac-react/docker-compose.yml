@@ -6,8 +6,8 @@ services:
     build:
       context: .
     ports:
-      - "443:443"
-      - "80:80"
+      - '443:443'
+      - '80:80'
     restart: always
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
@@ -17,13 +17,15 @@ services:
       BACKEND_PORT: ${BACKEND_PORT:-80}
       NGINX_CERT_FILE: /run/secrets/nginx_cert
       NGINX_KEY_FILE: /run/secrets/nginx_key
+      NGINX_DHPARAM_FILE: /run/secrets/nginx_dhparam
     networks:
       - ccac_bridge_network
     secrets:
       - nginx_cert
       - nginx_key
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-        
+      - nginx_dhparam
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
+
   certbot:
     image: certbot/certbot
     restart: unless-stopped
@@ -34,9 +36,11 @@ services:
 
 secrets:
   nginx_cert:
-    file: ${NGINX_PUBLIC_FILE:-/etc/nginx/tls/certs/nginx-ccac-selfsigned.crt}
+    file: ${NGINX_PUBLIC_FILE:-cert.pem}
   nginx_key:
-    file: ${NGINX_PRIVATE_FILE:-/etc/nginx/tls/certs/nginx-ccac-selfsigned.key}
+    file: ${NGINX_PRIVATE_FILE:-key.pem}
+  nginx_dhparam:
+    file: ${NGINX_DHPARAM_FILE:-dhparam.pem}
 
 networks:
   ccac_bridge_network:

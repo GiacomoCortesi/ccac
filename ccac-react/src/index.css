@@ -8,8 +8,9 @@ body {
 }
 
 /* this make sure all div can be extended to fit the whole page */
-html, body, #root, #root>div {
-  height: 100%
+html,
+body {
+  height: 100%;
 }
 
 code {
