@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    height: 90vh;
+    justify-content: center;
+    margin: auto;
+}
+
+.btncont {
+    justify-content: center;
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    width: 10rem;
+}

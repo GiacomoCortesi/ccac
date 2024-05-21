@@ -9,6 +9,7 @@ import PayPal from './components/PayPal/PayPal'
 import Shop from './components/Shop/Shop'
 import ShopItem from './components/ShopItem/ShopItem'
 import Tour from './components/Tour/Tour'
+import Login from './components/Login/Login'
 
 export const router = createBrowserRouter([
   {
@@ -55,5 +56,9 @@ export const router = createBrowserRouter([
   {
     path: 'pay',
     element: <PayPal />,
+  },
+  {
+    path: 'login',
+    element: <Login />,
   },
 ])
