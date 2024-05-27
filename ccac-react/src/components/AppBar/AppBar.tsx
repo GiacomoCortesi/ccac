@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import IconButton from '@mui/material/IconButton'
 import HomeIcon from '@mui/icons-material/Home'
 import ContentSpacer from './ContentSpacer'
+import classes from './AppBar.module.css'
 
 const pages = ['Home', 'Products']
 
@@ -42,6 +43,7 @@ const ResponsiveAppBar = () => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
+                  className={classes.link}
                   variant='text'
                   size={'large'}
                   disableRipple

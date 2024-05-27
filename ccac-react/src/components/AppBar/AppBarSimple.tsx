@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link, Typography, useMediaQuery, useTheme } from '@mui/material'
 import Footer from '../Footer/Footer'
 import { Link as RouterLink } from 'react-router-dom/'
-import './AppBarSimple.css'
+import classes from './AppBarSimple.module.css'
 import Coffee from '../Coffee/Coffee'
 import Box from '@mui/material/Box'
 
@@ -19,7 +19,7 @@ const AppBarSimple = () => {
             <Typography
               color={theme.palette.primary.light}
               variant={matchesMD ? 'h5' : 'h3'}
-              className={'top-left'}
+              className={classes.topleft}
               style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
             >
               HOME
@@ -41,7 +41,7 @@ const AppBarSimple = () => {
               <Typography
                 color={theme.palette.primary.light}
                 variant={matchesMD ? 'h5' : 'h3'}
-                className={'bottom-left'}
+                className={classes.bottomleft}
                 style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
               >
                 COMPRA
@@ -53,7 +53,7 @@ const AppBarSimple = () => {
               href={'https://linktr.ee/couscousacolazioneluce'}
               underline={'none'}
               variant={matchesMD ? 'h5' : 'h3'}
-              className={'bottom-right'}
+              className={classes.bottomright}
               style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
             >
               ASCOLTA
@@ -62,7 +62,7 @@ const AppBarSimple = () => {
               <Typography
                 color={theme.palette.primary.dark}
                 variant={matchesMD ? 'h5' : 'h3'}
-                className={'top-right'}
+                className={classes.topright}
                 style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
               >
                 CONTATTI
@@ -74,7 +74,7 @@ const AppBarSimple = () => {
               href={'https://rcwaves.it/couscousacolazione2024'}
               underline={'none'}
               variant={matchesMD ? 'h5' : 'h3'}
-              className={'top-left'}
+              className={classes.topleft}
               style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
             >
               PRESSKIT

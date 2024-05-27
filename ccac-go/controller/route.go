@@ -29,6 +29,8 @@ func (a *App) routes() {
 	product := v1.Group(ProductEndpoint)
 	product.GET("", a.Product.GetAllProduct)
 	product.GET("/:id", a.Product.GetProduct)
+	product.DELETE("/:id", a.Product.DeleteProduct)
+	product.PATCH("/:id", a.Product.EditProduct)
 	product.POST("", a.Product.CreateProduct)
 	product.DELETE("", a.Product.DeleteAllProduct)
 

@@ -1,34 +1,34 @@
-.bottom-left {
+.bottomleft {
   position: fixed;
   bottom: 20px;
   left: 20px;
 }
 
-.bottom-right {
+.bottomright {
   position: fixed;
   bottom: 20px;
   right: 20px;
 }
 
-.top-left {
+.topleft {
   position: fixed;
   top: 20px;
   left: 20px;
 }
 
-.top-right {
+.topright {
   position: fixed;
   top: 20px;
   right: 20px;
 }
 
-.top-center {
+.topcenter {
   position: fixed;
   top: 20px;
   right: 50%;
 }
 
-.bottom-center {
+.bottomcenter {
   position: fixed;
   bottom: 20px;
   right: 50%;

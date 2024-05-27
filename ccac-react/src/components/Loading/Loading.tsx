@@ -8,7 +8,7 @@ export default function Loading() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+        height: '90vh',
       }}
     >
       <CircularProgress />

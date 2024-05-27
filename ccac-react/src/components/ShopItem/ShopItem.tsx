@@ -117,6 +117,8 @@ export default function ShopItem() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <ImageList
+              variant='quilted'
+              rowHeight={100}
               cols={4}
               sx={{
                 margin: 1,
@@ -129,7 +131,7 @@ export default function ShopItem() {
                 <ImageListItem key={'main_image'} cols={4} rows={4}>
                   <img
                     style={{ maxWidth: 450 }}
-                    {...srcset(data.images[selectedImage], 30, 30, 4, 4)}
+                    {...srcset(data.images[selectedImage], 100, 100, 4, 4)}
                     alt={data.id}
                     loading='lazy'
                   />
@@ -148,7 +150,7 @@ export default function ShopItem() {
                         onClick={() => {
                           setSelectedImage(index)
                         }}
-                        {...srcset(image, 20, 20, 1, 1)}
+                        {...srcset(image, 100, 100, 1, 1)}
                         alt={data.id}
                         loading='lazy'
                       />

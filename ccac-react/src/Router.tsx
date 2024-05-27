@@ -10,6 +10,8 @@ import Shop from './components/Shop/Shop'
 import ShopItem from './components/ShopItem/ShopItem'
 import Tour from './components/Tour/Tour'
 import Login from './components/Login/Login'
+import WareHouse from './components/WareHouse/WareHouse'
+import AdminProduct from './components/AdminProduct/AdminProduct'
 
 export const router = createBrowserRouter([
   {
@@ -60,5 +62,13 @@ export const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login />,
+  },
+  {
+    path: 'admin/warehouse',
+    element: <WareHouse />,
+  },
+  {
+    path: 'admin/warehouse/:id',
+    element: <AdminProduct />,
   },
 ])

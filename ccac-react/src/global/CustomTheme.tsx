@@ -12,6 +12,9 @@ export const customTheme = createTheme({
       main: '#0EEAFF',
     },
   },
+  mixins: {
+    toolbar: { minHeight: 80 },
+  },
   // add local typewriter font and overwrite typography default roboto font
   components: {
     MuiCssBaseline: {

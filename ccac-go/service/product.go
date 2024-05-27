@@ -2,12 +2,12 @@ package service
 
 import (
 	"fmt"
+
 	"github.com/ccac-go/domain"
 )
 
 var ErrInvalidSKU = fmt.Errorf("invalid SKU format")
 var ErrInvalidType = fmt.Errorf("invalid type: type cannot be empty")
-var ErrInvalidID = fmt.Errorf("invalid ID: ID cannot be empty")
 
 type productService struct {
 	productRepository domain.ProductRepository
@@ -23,9 +23,6 @@ func (p productService) Validate(product domain.Product) error {
 	}
 	if product.Type == "" {
 		return ErrInvalidType
-	}
-	if product.ID == "" {
-		return ErrInvalidID
 	}
 	return nil
 }
