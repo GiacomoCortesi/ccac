@@ -16,9 +16,9 @@ function Login() {
       // maybe trigger a loading screen
       return
     }
-    // if (user) navigate('/dashboard')
-    if (user) navigate('/login')
-  }, [user, loading])
+    // Redirect authenticated users to admin warehouse
+    if (user) navigate('/admin/warehouse')
+  }, [user, loading, navigate])
   return (
     <>
       <AppBar />

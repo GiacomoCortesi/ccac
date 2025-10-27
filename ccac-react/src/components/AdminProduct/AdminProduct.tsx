@@ -8,7 +8,7 @@ import {
 import { useParams } from 'react-router-dom'
 import { IProduct } from '../../models/product'
 import Loading from '../Loading/Loading'
-import AppBar from '../AppBar/AppBar'
+import AppBar from '../AppBar/AdminAppBar'
 import AdminProductTab from './AdminProductTab'
 import ShopSnackbar from '../SnackBar/SnackBar'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutlineOutlined'

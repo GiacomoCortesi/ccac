@@ -12,6 +12,7 @@ import Tour from './components/Tour/Tour'
 import Login from './components/Login/Login'
 import WareHouse from './components/WareHouse/WareHouse'
 import AdminProduct from './components/AdminProduct/AdminProduct'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 export const router = createBrowserRouter([
   {
@@ -65,10 +66,18 @@ export const router = createBrowserRouter([
   },
   {
     path: 'admin/warehouse',
-    element: <WareHouse />,
+    element: (
+      <ProtectedRoute>
+        <WareHouse />
+      </ProtectedRoute>
+    ),
   },
   {
     path: 'admin/warehouse/:id',
-    element: <AdminProduct />,
+    element: (
+      <ProtectedRoute>
+        <AdminProduct />
+      </ProtectedRoute>
+    ),
   },
 ])
