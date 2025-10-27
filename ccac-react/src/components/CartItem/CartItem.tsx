@@ -26,7 +26,10 @@ export default function CartItem({
   quantity,
   total,
 }: ICartItem) {
-  const { data, error, isLoading } = useGetProduct(product_id)
+  const productResponse = useGetProduct(product_id)
+  const data = productResponse.data
+  const error = productResponse.error
+  const isLoading = productResponse.isLoading
   const { trigger } = useDeleteCartItem()
   const addToCartTrigger = useAddToCart().trigger
   const onItemDeleteClick = (quantityToDelete: number) => {
@@ -66,9 +69,9 @@ export default function CartItem({
             sx={{ margin: '0em 2em' }}
             primary={data.title}
             secondary={
-              data.description + data.variations &&
+              data.description +               data.variations &&
               Array.isArray(data.variations) &&
-              data.variations.map((variation) => {
+              data.variations.map((variation: any) => {
                 return (
                   variation.sku === sku &&
                   variation.options.color + ' ' + variation.options.size

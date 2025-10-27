@@ -18,7 +18,12 @@ const currencies = [
   { code: 'AUD', name: 'Australian Dollar' },
 ]
 
-export const ProductTab = ({ product, onProductChange }: IProduct) => {
+interface AdminProductTabProps {
+  product: IProduct
+  onProductChange: (product: IProduct) => void
+}
+
+export const ProductTab = ({ product, onProductChange }: AdminProductTabProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let newProduct
     if (event.target.name === 'quantity') {
@@ -49,7 +54,7 @@ export const ProductTab = ({ product, onProductChange }: IProduct) => {
 
   const handleAutocompleteChange = (
     id: string,
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.SyntheticEvent<Element, Event>,
     newValue: any
   ) => {
     const newProduct = {
@@ -61,7 +66,7 @@ export const ProductTab = ({ product, onProductChange }: IProduct) => {
 
   const handleOptionsChange = (
     id: string,
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.SyntheticEvent<Element, Event>,
     newValue: any
   ) => {
     const newProduct = {
@@ -159,8 +164,8 @@ export const ProductTab = ({ product, onProductChange }: IProduct) => {
             freeSolo
             renderTags={(value: readonly string[], getTagProps) =>
               value.map((option: string, index: number) => (
+                // eslint-disable-next-line react/jsx-key
                 <Chip
-                  key={index}
                   variant='outlined'
                   label={option}
                   {...getTagProps({ index })}
@@ -188,8 +193,8 @@ export const ProductTab = ({ product, onProductChange }: IProduct) => {
             freeSolo
             renderTags={(value: readonly string[], getTagProps) =>
               value.map((option: string, index: number) => (
+                // eslint-disable-next-line react/jsx-key
                 <Chip
-                  key={index}
                   variant='outlined'
                   label={option}
                   {...getTagProps({ index })}
@@ -217,8 +222,8 @@ export const ProductTab = ({ product, onProductChange }: IProduct) => {
             freeSolo
             renderTags={(value: readonly string[], getTagProps) =>
               value.map((option: string, index: number) => (
+                // eslint-disable-next-line react/jsx-key
                 <Chip
-                  key={index}
                   variant='outlined'
                   label={option}
                   {...getTagProps({ index })}
@@ -246,8 +251,8 @@ export const ProductTab = ({ product, onProductChange }: IProduct) => {
             freeSolo
             renderTags={(value: readonly string[], getTagProps) =>
               value.map((option: string, index: number) => (
+                // eslint-disable-next-line react/jsx-key
                 <Chip
-                  key={index}
                   variant='outlined'
                   label={option}
                   {...getTagProps({ index })}

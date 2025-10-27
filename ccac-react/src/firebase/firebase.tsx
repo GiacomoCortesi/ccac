@@ -30,16 +30,16 @@ const auth = getAuth()
 // const db = getFirestore(app)
 const googleProvider = new GoogleAuthProvider()
 
-const logInWithEmailAndPassword = async (email, password) => {
+const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password)
-  } catch (err) {
+  } catch (err: any) {
     console.error(err)
     alert(err.message)
   }
 }
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name: string, email: string, password: string) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password)
     const user = res.user
@@ -50,16 +50,16 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     //   authProvider: 'local',
     //   email,
     // })
-  } catch (err) {
+  } catch (err: any) {
     console.error(err)
     alert(err.message)
   }
 }
-const sendPasswordReset = async (email) => {
+const sendPasswordReset = async (email: string) => {
   try {
     await sendPasswordResetEmail(auth, email)
     alert('Password reset link sent!')
-  } catch (err) {
+  } catch (err: any) {
     console.error(err)
     alert(err.message)
   }

@@ -23,7 +23,10 @@ import Loading from '../Loading/Loading'
 
 export default function ShopItem() {
   const { id } = useParams()
-  const { data, error, isLoading } = useGetProduct(id)
+  const productResponse = useGetProduct(id)
+  const data = productResponse.data
+  const error = productResponse.error
+  const isLoading = productResponse.isLoading
   const [quantity, setQuantity] = React.useState('1')
   const [size, setSize] = React.useState(
     data?.options?.available_sizes ? data.options.available_sizes[0] : 'M'
@@ -138,7 +141,7 @@ export default function ShopItem() {
                 </ImageListItem>
               )}
               {data.images &&
-                data.images.map((image, index) => {
+                data.images.map((image: any, index: any) => {
                   return (
                     <ImageListItem key={'image' + index} cols={1} rows={1}>
                       <img

@@ -3,7 +3,12 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
 import { IconButton } from '@mui/material'
 import { useDeleteProduct } from '../../services/api-product-service'
 
-export default function DeleteProducts({ idList, onProductDelete }: string[]) {
+interface DeleteProductsProps {
+  idList: string[]
+  onProductDelete: (message: string) => void
+}
+
+export default function DeleteProducts({ idList, onProductDelete }: DeleteProductsProps) {
   const { deleteProduct, isDeleting, error } = useDeleteProduct()
   const deleteSingleProduct = async (id: string) => {
     await deleteProduct(id)
