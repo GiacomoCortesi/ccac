@@ -46,11 +46,10 @@ const AdminProduct = () => {
   const { id } = useParams()
   // fetch product information for existing product
   // init to empty product for a brand new product
-  const {
-    data: product,
-    error,
-    isLoading,
-  } = id !== createProductPath ? useGetProduct(id) : { data: emptyProduct }
+  const productResponse = id !== createProductPath ? useGetProduct(id) : { data: emptyProduct, error: null, isLoading: false }
+  const product = productResponse.data
+  const error = productResponse.error
+  const isLoading = productResponse.isLoading
 
   const { editProduct, error: editProductError, isUpdating } = useEditProduct()
   const {
@@ -92,14 +91,14 @@ const AdminProduct = () => {
     }
   }, [product])
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     if (id === createProductPath) {
       console.log('creating product: ', updatedProduct)
       await createProduct(updatedProduct)
     } else {
       console.log('updating product: ', updatedProduct)
-      await editProduct(id, updatedProduct)
+      await editProduct(id!, updatedProduct)
     }
     setSnackBarOpen(true)
   }
@@ -143,11 +142,11 @@ const AdminProduct = () => {
 
   const renderSnackBar = () => {
     let errorMessage
-    if (createProductError?.message) {
-      errorMessage = `Product creation failed: ${createProductError.message}`
+    if ((createProductError as any)?.message) {
+      errorMessage = `Product creation failed: ${(createProductError as any).message}`
     }
-    if (editProductError?.message) {
-      errorMessage = `Product update failed: ${editProductError.message}`
+    if ((editProductError as any)?.message) {
+      errorMessage = `Product update failed: ${(editProductError as any).message}`
     }
     const message = errorMessage || 'Product updated succesfully'
     if (!createProductError && !editProductError && snackBarOpen) {
@@ -214,7 +213,7 @@ const AdminProduct = () => {
                 <AddCircleOutlineIcon />
               </Button>
               <Button
-                style={{ display: selectedTab === 0 ? 'none' : null }}
+                style={{ display: selectedTab === 0 ? 'none' : undefined }}
                 onClick={handleDeleteProductVariationClick}
               >
                 Delete Product variation

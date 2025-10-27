@@ -16,7 +16,10 @@ export default function Shop() {
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   const matchesLG = useMediaQuery(theme.breakpoints.down('lg'))
-  const { data, error, isLoading } = useGetAllProducts()
+  const productsResponse = useGetAllProducts()
+  const data = productsResponse.data
+  const error = productsResponse.error
+  const isLoading = productsResponse.isLoading
   const getImageListCols = () => {
     if (matchesSM) {
       return 1

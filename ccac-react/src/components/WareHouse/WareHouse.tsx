@@ -14,13 +14,17 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutlineOutlined'
 
 export default function WareHouse() {
-  const { data: products, error, isLoading, mutate } = useGetAllProducts()
+  const productsResponse = useGetAllProducts()
+  const products = productsResponse.data
+  const error = productsResponse.error
+  const isLoading = productsResponse.isLoading
+  const mutate = productsResponse.mutate
 
   const [snackBarOpen, setSnackBarOpen] = React.useState<boolean>(false)
   const [snackBarMessage, setSnackBarMessage] = React.useState<string>('')
-  const [selectedIds, setSelectedIds] = React.useState([])
+  const [selectedIds, setSelectedIds] = React.useState<string[]>([])
 
-  const handleSelectionChange = (newSelection) => {
+  const handleSelectionChange = (newSelection: any) => {
     setSelectedIds(newSelection)
   }
   const columns: GridColDef[] = [
@@ -87,11 +91,11 @@ export default function WareHouse() {
       }
     })
   }
-  const handleCellClick = (param, event) => {
+  const handleCellClick = (param: any, event: any) => {
     event.stopPropagation()
   }
 
-  const handleRowClick = (param, event) => {
+  const handleRowClick = (param: any, event: any) => {
     event.stopPropagation()
   }
 
@@ -112,10 +116,10 @@ export default function WareHouse() {
       {error && 'Error...'}
       <Box style={{ margin: '5rem' }}>
         {products?.length === 0 && 'No product available in the shop...'}
-        {products?.length > 0 && (
+        {products && products.length > 0 && (
           <>
             <DataGrid
-              rows={rows(products)}
+              rows={products ? rows(products) : []}
               columns={columns}
               initialState={{
                 pagination: {
@@ -125,15 +129,12 @@ export default function WareHouse() {
               onCellClick={handleCellClick}
               onRowClick={handleRowClick}
               pageSizeOptions={[5, 10]}
-              onRowSelectionModelChange={(idList: string[]) => {
+              onRowSelectionModelChange={(idList: any) => {
                 setSelectedIds(idList)
               }}
               checkboxSelection
               disableRowSelectionOnClick
               hideFooterSelectedRowCount
-              onSelectionModelChange={(newSelection) =>
-                handleSelectionChange(newSelection)
-              }
             />
             <Box style={{ display: 'flex', alignItems: 'center' }}>
               <DeleteProducts

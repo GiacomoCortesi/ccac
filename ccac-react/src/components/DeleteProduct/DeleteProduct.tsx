@@ -3,7 +3,12 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
 import { IconButton } from '@mui/material'
 import { useDeleteProduct } from '../../services/api-product-service'
 
-export default function DeleteProduct({ id, onProductDelete }: any) {
+interface DeleteProductProps {
+  id: string
+  onProductDelete: (message: string) => void
+}
+
+export default function DeleteProduct({ id, onProductDelete }: DeleteProductProps) {
   const { deleteProduct, isDeleting, error } = useDeleteProduct()
 
   const handleDeleteProductClick = async () => {
@@ -24,7 +29,7 @@ export default function DeleteProduct({ id, onProductDelete }: any) {
         aria-label={`delete product button`}
         disableRipple={true}
         disabled={isDeleting}
-        onClick={() => handleDeleteProductClick(id)}
+        onClick={() => handleDeleteProductClick()}
       >
         <RemoveCircleOutlineIcon color={'primary'} fontSize={'large'} />
       </IconButton>
