@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Typography from '@mui/material/Typography'
 import { Link as RouterLink } from 'react-router-dom'
 import Coffee from '../Coffee/Coffee'
-import { Link, useMediaQuery, useTheme } from '@mui/material'
+import { useMediaQuery, useTheme } from '@mui/material'
 import { Fragment } from 'react'
 import AppBarSimple from './AppBarSimple'
 
@@ -28,66 +28,71 @@ export default function DrawerAppBar() {
       sx={{
         height: '100%',
         textAlign: 'center',
-        marginTop: 10,
+        marginTop: 6,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
+        gap: 0.5,
       }}
     >
       <RouterLink to='/' style={{ textDecoration: 'none' }}>
         <Typography
-          color={theme.palette.primary.light}
-          variant={'h5'}
-          style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
+          color={theme.palette.primary.dark}
+          variant={'h4'}
+          style={{ fontFamily: 'couscous-regular' }}
         >
           HOME
         </Typography>
       </RouterLink>
       <RouterLink
-        style={{ textDecoration: 'none', marginTop: 1.5 }}
+        style={{ textDecoration: 'none' }}
+        to={'/video'}
+      >
+        <Typography
+          color={theme.palette.primary.dark}
+          variant={'h4'}
+          style={{ fontFamily: 'couscous-regular' }}
+        >
+          ASCOLTA
+        </Typography>
+      </RouterLink>
+      <RouterLink
+        style={{ textDecoration: 'none' }}
         to={'/products'}
       >
         <Typography
-          color={theme.palette.primary.light}
-          variant={'h5'}
-          style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
+          color={theme.palette.primary.dark}
+          variant={'h4'}
+          style={{ fontFamily: 'couscous-regular' }}
         >
           COMPRA
         </Typography>
       </RouterLink>
-      <Link
-        color={theme.palette.primary.light}
-        target='_blank'
-        href={'https://linktr.ee/couscousacolazioneluce'}
-        underline={'none'}
-        variant={'h5'}
-        style={{ fontFamily: 'ntseawave', fontWeight: 'bold', marginTop: 1.5 }}
-      >
-        ASCOLTA
-      </Link>
       <RouterLink
-        style={{ textDecoration: 'none', marginTop: 1.5 }}
+        style={{ textDecoration: 'none' }}
+        to={'/presskit'}
+      >
+        <Typography
+          color={theme.palette.primary.dark}
+          variant={'h4'}
+          style={{ fontFamily: 'couscous-regular' }}
+        >
+          MEDIA
+        </Typography>
+      </RouterLink>
+      <RouterLink
+        style={{ textDecoration: 'none' }}
         to={'/contact'}
       >
         <Typography
-          color={theme.palette.primary.light}
-          variant={'h5'}
-          style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
+          color={theme.palette.primary.dark}
+          variant={'h4'}
+          style={{ fontFamily: 'couscous-regular' }}
         >
           CONTATTI
         </Typography>
       </RouterLink>
-      <Link
-        color={theme.palette.primary.light}
-        target={'_blank'}
-        href={'https://rcwaves.it/couscousacolazione2024'}
-        underline={'none'}
-        variant={'h5'}
-        style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
-      >
-        PRESSKIT
-      </Link>
-      <Box style={{ margin: 10 }}>
+      <Box style={{ marginTop: 'auto', marginBottom: 10, marginLeft: 10, marginRight: 10 }}>
         <Coffee />
       </Box>
     </Box>
@@ -106,6 +111,7 @@ export default function DrawerAppBar() {
           position: 'absolute',
           top: '20px',
           left: '20px',
+          zIndex: 1000,
         }}
       >
         <MenuIcon />
@@ -119,7 +125,12 @@ export default function DrawerAppBar() {
         }}
         sx={{
           display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          '& .MuiDrawer-paper': { 
+            boxSizing: 'border-box', 
+            width: drawerWidth,
+            backgroundColor: 'rgba(20, 20, 20, 0.85)',
+            backgroundImage: 'none',
+          },
         }}
       >
         {drawer}

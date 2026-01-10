@@ -20,6 +20,7 @@ import { useGetProduct } from '../../services/api-product-service'
 import AppBar from '../AppBar/AppBar'
 import ShopSnackbar from '../SnackBar/SnackBar'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 
 export default function ShopItem() {
   const { id } = useParams()
@@ -115,7 +116,7 @@ export default function ShopItem() {
     <Box>
       <AppBar />
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {data && (
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>

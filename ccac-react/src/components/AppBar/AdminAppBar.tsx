@@ -41,7 +41,7 @@ const AdminAppBar = () => {
                 onClick={() => navigate('/admin/warehouse')}
                 sx={{ my: 2, color: 'primary', display: 'block' }}
               >
-                <Typography variant='h5'>Warehouse</Typography>
+                <Typography variant='h4'>Warehouse</Typography>
               </Button>
             </Box>
             <Box sx={{ display: { xs: 'block', md: 'none' } }}>

@@ -10,6 +10,7 @@ import { useGetAllProducts } from '../../services/api-product-service'
 import AppBar from '../AppBar/AppBar'
 import ImageHover from '../ImageHover/ImageHover'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import { IProduct } from '../../models/product'
 
 export default function Shop() {
@@ -33,7 +34,7 @@ export default function Shop() {
     <Fragment>
       <AppBar />
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {data?.length === 0 && 'No product available in the shop...'}
       {data && (
         <ImageList cols={getImageListCols()}>

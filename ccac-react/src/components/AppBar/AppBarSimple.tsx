@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Typography, useMediaQuery, useTheme } from '@mui/material'
 import Footer from '../Footer/Footer'
 import { Link as RouterLink } from 'react-router-dom/'
 import classes from './AppBarSimple.module.css'
@@ -18,9 +18,9 @@ const AppBarSimple = () => {
           <RouterLink to='/'>
             <Typography
               color={theme.palette.primary.light}
-              variant={matchesMD ? 'h5' : 'h3'}
+              variant={matchesMD ? 'h4' : 'h3'}
               className={classes.topleft}
-              style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
+              style={{ fontFamily: 'couscous-regular' }}
             >
               HOME
             </Typography>
@@ -33,52 +33,51 @@ const AppBarSimple = () => {
                 top: 20,
                 width: 170,
                 right: window.innerWidth / 2 - 85,
+                zIndex: 1000,
               }}
             >
               <Coffee />
             </Box>
             <RouterLink to={'/products'}>
               <Typography
-                color={theme.palette.primary.light}
-                variant={matchesMD ? 'h5' : 'h3'}
+                color={theme.palette.primary.dark}
+                variant={matchesMD ? 'h4' : 'h3'}
                 className={classes.bottomleft}
-                style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
+                style={{ fontFamily: 'couscous-regular' }}
               >
                 COMPRA
               </Typography>
             </RouterLink>
-            <Link
-              color={theme.palette.primary.light}
-              target='_blank'
-              href={'https://linktr.ee/couscousacolazioneluce'}
-              underline={'none'}
-              variant={matchesMD ? 'h5' : 'h3'}
-              className={classes.bottomright}
-              style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
-            >
-              ASCOLTA
-            </Link>
+            <RouterLink to={'/video'}>
+              <Typography
+                color={theme.palette.primary.dark}
+                variant={matchesMD ? 'h4' : 'h3'}
+                className={classes.bottomright}
+                style={{ fontFamily: 'couscous-regular' }}
+              >
+                ASCOLTA
+              </Typography>
+            </RouterLink>
             <RouterLink to={'/contact'}>
               <Typography
                 color={theme.palette.primary.dark}
-                variant={matchesMD ? 'h5' : 'h3'}
+                variant={matchesMD ? 'h4' : 'h3'}
                 className={classes.topright}
-                style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
+                style={{ fontFamily: 'couscous-regular' }}
               >
                 CONTATTI
               </Typography>
             </RouterLink>
-            <Link
-              color={theme.palette.primary.dark}
-              target={'_blank'}
-              href={'https://rcwaves.it/couscousacolazione2024'}
-              underline={'none'}
-              variant={matchesMD ? 'h5' : 'h3'}
-              className={classes.topleft}
-              style={{ fontFamily: 'ntseawave', fontWeight: 'bold' }}
-            >
-              PRESSKIT
-            </Link>
+            <RouterLink to={'/presskit'}>
+              <Typography
+                color={theme.palette.primary.dark}
+                variant={matchesMD ? 'h4' : 'h3'}
+                className={classes.topleft}
+                style={{ fontFamily: 'couscous-regular' }}
+              >
+                MEDIA
+              </Typography>
+            </RouterLink>
           </Fragment>
         )}
       </Fragment>

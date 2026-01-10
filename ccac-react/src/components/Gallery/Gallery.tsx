@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import { useGetGallery } from '../../services/api-gallery'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
   console.log('rows', rows)
@@ -30,7 +31,7 @@ export default function Gallery() {
     <Fragment>
       <DrawerAppBar />
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         {itemData && (
           <ImageList

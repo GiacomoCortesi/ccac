@@ -7,11 +7,6 @@ function Coffee() {
       target='_blank'
       href='https://www.buymeacoffee.com/couscousacolazione'
     >
-      <img
-        src='https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg'
-        alt='Buy me a coffee'
-      />
-      <Typography>BUY US BEER</Typography>
     </Button>
   )
 }

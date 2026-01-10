@@ -18,6 +18,7 @@ import IconButton from '@mui/material/IconButton'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import { mutate } from 'swr'
 
 export default function CartItem({
@@ -52,7 +53,7 @@ export default function CartItem({
   return (
     <Fragment>
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {data && (
         <ListItem>
           <ListItemAvatar>

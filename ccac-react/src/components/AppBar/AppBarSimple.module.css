@@ -2,24 +2,28 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
+  z-index: 1000;
 }
 
 .bottomright {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 1000;
 }
 
 .topleft {
   position: fixed;
   top: 20px;
   left: 20px;
+  z-index: 1000;
 }
 
 .topright {
   position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 1000;
 }
 
 .topcenter {

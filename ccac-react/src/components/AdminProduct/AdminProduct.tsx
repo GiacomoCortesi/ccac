@@ -8,6 +8,7 @@ import {
 import { useParams } from 'react-router-dom'
 import { IProduct } from '../../models/product'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import AppBar from '../AppBar/AdminAppBar'
 import AdminProductTab from './AdminProductTab'
 import ShopSnackbar from '../SnackBar/SnackBar'
@@ -164,7 +165,7 @@ const AdminProduct = () => {
   return (
     <>
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {updatedProduct && product && (
         <>
           <AppBar />

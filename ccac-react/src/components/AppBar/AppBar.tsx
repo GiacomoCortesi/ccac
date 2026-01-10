@@ -51,7 +51,7 @@ const ResponsiveAppBar = () => {
                   onClick={() => handleMenuItemClick(page)}
                   sx={{ my: 2, color: 'primary', display: 'block' }}
                 >
-                  <Typography variant='h5'>{page}</Typography>
+                  <Typography variant='h4'>{page}</Typography>
                 </Button>
               ))}
             </Box>

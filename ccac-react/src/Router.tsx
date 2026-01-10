@@ -13,6 +13,10 @@ import Login from './components/Login/Login'
 import WareHouse from './components/WareHouse/WareHouse'
 import AdminProduct from './components/AdminProduct/AdminProduct'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import AlmaPressKit from './components/AlmaPressKit/AlmaPressKit'
+import LucePressKit from './components/LucePressKit/LucePressKit'
+import PressKit from './components/PressKit/PressKit'
+import Video from './components/Video/Video'
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +59,22 @@ export const router = createBrowserRouter([
   {
     path: 'gallery',
     element: <Gallery />,
+  },
+  {
+    path: 'presskit',
+    element: <PressKit />,
+  },
+  {
+    path: 'alma-presskit',
+    element: <AlmaPressKit />,
+  },
+  {
+    path: 'luce-presskit',
+    element: <LucePressKit />,
+  },
+  {
+    path: 'video',
+    element: <Video />,
   },
   {
     path: 'pay',

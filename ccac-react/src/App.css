@@ -45,3 +45,19 @@
   font-family: ntseawave;
   src: url(./static/fonts/nt_seawave.otf);
 }
+@font-face {
+  font-family: admiration-pains;
+  src: url(./static/fonts/Admiration-Pains.ttf);
+}
+@font-face {
+  font-family: couscous-regular;
+  src: url(./static/fonts/Couscous-Regular.ttf);
+}
+@font-face {
+  font-family: stixtwomath-regular;
+  src: url(./static/fonts/STIXTwoMath-Regular.ttf);
+}
+@font-face {
+  font-family: zai-softitalic-typewriter;
+  src: url(./static/fonts/zai_SoftItalicTypewriter.ttf);
+}

@@ -4,6 +4,7 @@ import { Box, IconButton } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { useGetAllProducts } from '../../services/api-product-service'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import { IProduct } from '../../models/product'
 import AppBar from '../AppBar/AdminAppBar'
 import DeleteProduct from '../DeleteProduct/DeleteProduct'
@@ -113,7 +114,7 @@ export default function WareHouse() {
     <>
       <AppBar />
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       <Box style={{ margin: '5rem' }}>
         {products?.length === 0 && 'No product available in the shop...'}
         {products && products.length > 0 && (

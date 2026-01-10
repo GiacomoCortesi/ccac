@@ -10,6 +10,7 @@ import {
 import DrawerAppBar from '../AppBar/AppBar'
 import './PayPal.css'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 
 const PayPal = (props: any) => {
   const { data, error, isLoading } = useGetCart()
@@ -56,7 +57,7 @@ const PayPal = (props: any) => {
     <>
       <DrawerAppBar />
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {data && (
         <Box
           style={{

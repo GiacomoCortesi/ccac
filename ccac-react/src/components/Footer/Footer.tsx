@@ -1,13 +1,9 @@
 import Box from '@mui/material/Box'
-import { useLocation } from 'react-router-dom'
+import { useTheme } from '@mui/material'
 import './Footer.css'
 
 const Footer = () => {
-  const location = useLocation()
-
-  const isHome = () => {
-    return location.pathname === '/' || location.pathname === '/home'
-  }
+  const theme = useTheme()
 
   return (
     <Box
@@ -20,6 +16,7 @@ const Footer = () => {
         display: 'flex',
         position: 'fixed',
         alignItems: 'center',
+        color: theme.palette.text.primary,
       }}
     >
       <a
@@ -30,7 +27,7 @@ const Footer = () => {
       >
         {
           <svg
-            className={isHome() ? 'filter-white' : 'filter-black'}
+            style={{ fill: theme.palette.text.primary }}
             xmlns='http://www.w3.org/2000/svg'
             height='2em'
             viewBox='0 0 496 512'
@@ -47,7 +44,7 @@ const Footer = () => {
       >
         {
           <svg
-            className={isHome() ? 'filter-white' : 'filter-black'}
+            style={{ fill: theme.palette.text.primary }}
             xmlns='http://www.w3.org/2000/svg'
             height='2em'
             viewBox='0 0 384 512'
@@ -64,7 +61,7 @@ const Footer = () => {
       >
         {
           <svg
-            className={isHome() ? 'filter-white' : 'filter-black'}
+            style={{ fill: theme.palette.text.primary }}
             xmlns='http://www.w3.org/2000/svg'
             height='2em'
             viewBox='0 0 512 512'
@@ -81,7 +78,7 @@ const Footer = () => {
       >
         {
           <svg
-            className={isHome() ? 'filter-white' : 'filter-black'}
+            style={{ fill: theme.palette.text.primary }}
             xmlns='http://www.w3.org/2000/svg'
             height='2em'
             viewBox='0 0 448 512'
@@ -98,7 +95,7 @@ const Footer = () => {
       >
         {
           <svg
-            className={isHome() ? 'filter-white' : 'filter-black'}
+            style={{ fill: theme.palette.text.primary }}
             xmlns='http://www.w3.org/2000/svg'
             height='2em'
             viewBox='0 0 576 512'

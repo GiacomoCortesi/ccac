@@ -7,6 +7,7 @@ import AppBar from '../AppBar/AppBar'
 import ContactMail from '../Contact/ContactMail'
 import ContactWA from '../Contact/ContactWA'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 
 const Order = () => {
   const { id } = useParams()
@@ -18,7 +19,7 @@ const Order = () => {
   return (
     <Box margin={1.75}>
       <AppBar />
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {isLoading && <Loading />}
       {data && (
         <Paper variant={'outlined'}>

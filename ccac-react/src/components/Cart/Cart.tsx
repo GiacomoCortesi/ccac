@@ -10,6 +10,7 @@ import { useGetCart } from '../../services/api-cart-service'
 import { ICart, ICartItem } from '../../models/cart'
 import CartItem from '../CartItem/CartItem'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import AppBar from '../AppBar/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -56,7 +57,7 @@ export default function Cart() {
     <Fragment>
       <AppBar />
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       {data && (
         <Box sx={{ marginLeft: 2, marginRight: 2 }}>
           {isLoading && <Loading />}

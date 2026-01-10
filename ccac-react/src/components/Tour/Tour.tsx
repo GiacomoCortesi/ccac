@@ -6,13 +6,14 @@ import { useGetAllEvents } from '../../services/api-event-service'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
 import Concert from '../Concert/Concert'
 import Loading from '../Loading/Loading'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 
 const Tour = () => {
   const { data, error, isLoading } = useGetAllEvents()
   return (
     <Fragment>
       {isLoading && <Loading />}
-      {error && 'Error...'}
+      {error && <ErrorDisplay error={error} />}
       <DrawerAppBar />
       {/*<Box style={{ backgroundImage: `url(${bgCous})`}} sx={{height: window.innerHeight, width: "100%"}}>*/}
       {/*    <TableContainer component={Box} sx={{flexDirection: "column", margin: "auto", width: "75%", padding: "7.5em"}}>*/}
