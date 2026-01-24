@@ -1,33 +1,36 @@
 import React, { Fragment } from 'react'
 import { Typography, useMediaQuery, useTheme } from '@mui/material'
 import Footer from '../Footer/Footer'
-import { Link as RouterLink } from 'react-router-dom/'
+import { Link as RouterLink, useLocation } from 'react-router-dom/'
 import classes from './AppBarSimple.module.css'
 import Coffee from '../Coffee/Coffee'
 import Box from '@mui/material/Box'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../hooks/useLanguage'
+import { getPathWithoutLanguage } from '../../utils/languageUtils'
 
 const AppBarSimple = () => {
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
   const { t } = useTranslation()
   const { getLocalizedPath } = useLanguage()
+  const location = useLocation()
+  const cleanPath = getPathWithoutLanguage(location.pathname)
+  const isHomePage = cleanPath === '/' || cleanPath === '/home'
+  const isMediaChildPage = cleanPath.startsWith('/media/') && cleanPath !== '/media'
 
   return (
     <Fragment>
       <Fragment>
-        {!window.location.pathname.match(/^\/(it|en)(\/|$)/) &&
-        window.location.pathname !== '/' &&
-        window.location.pathname !== '/home' ? (
-          <RouterLink to={getLocalizedPath('/')}>
+        {!isHomePage ? (
+          <RouterLink to={isMediaChildPage ? getLocalizedPath('/media') : getLocalizedPath('/')}>
             <Typography
               color={theme.palette.primary.light}
               variant={matchesMD ? 'h4' : 'h3'}
               className={classes.topleft}
               style={{ fontFamily: 'couscous-regular' }}
             >
-              {t('navigation.home')}
+              {isMediaChildPage ? t('navigation.media') : t('navigation.home')}
             </Typography>
           </RouterLink>
         ) : (
@@ -73,7 +76,7 @@ const AppBarSimple = () => {
                 {t('navigation.contact')}
               </Typography>
             </RouterLink>
-            <RouterLink to={getLocalizedPath('/presskit')}>
+            <RouterLink to={getLocalizedPath('/media')}>
               <Typography
                 color={theme.palette.primary.dark}
                 variant={matchesMD ? 'h4' : 'h3'}

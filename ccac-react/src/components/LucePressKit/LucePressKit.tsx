@@ -3,16 +3,20 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import JSZip from 'jszip'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
-import albumCover from '../../static/images/luce/cover.jpg'
-import photoPress1 from '../../static/images/luce/CousCous a colazione - Photopress01 (ph Martina Platone).jpg'
-import photoPress2 from '../../static/images/luce/CousCous a colazione - Photopress02 (ph Martina Platone).jpg'
-import photoPress3 from '../../static/images/luce/CousCous a colazione - Photopress03 (ph Martina Platone).jpg'
-import photoPress4 from '../../static/images/luce/CousCous a colazione - Photopress04 (ph Martina Platone).jpg'
-import photoPress5 from '../../static/images/luce/CousCous a colazione - Photopress05 (ph Martina Platone).jpg'
-import photoPress6 from '../../static/images/luce/CousCous a colazione - Photopress06 (ph Martina Platone).jpg'
-import photoPress7 from '../../static/images/luce/CousCous a colazione - Photopress07 (ph Martina Platone).jpg'
-import photoPress8 from '../../static/images/luce/CousCous a colazione - Photopress08 (ph Martina Platone).jpg'
-import photoPress9 from '../../static/images/luce/CousCous a colazione - Photopress09 (ph Martina Platone).jpg'
+// Optimized image for display
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import albumCover from '../../static/images/luce/cover.jpg?w=1600&format=webp&quality=85'
+// Original images for downloads (keep original quality)
+import albumCoverOriginal from '../../static/images/luce/cover.jpg'
+import photoPress1Original from '../../static/images/luce/CousCous a colazione - Photopress01 (ph Martina Platone).jpg'
+import photoPress2Original from '../../static/images/luce/CousCous a colazione - Photopress02 (ph Martina Platone).jpg'
+import photoPress3Original from '../../static/images/luce/CousCous a colazione - Photopress03 (ph Martina Platone).jpg'
+import photoPress4Original from '../../static/images/luce/CousCous a colazione - Photopress04 (ph Martina Platone).jpg'
+import photoPress5Original from '../../static/images/luce/CousCous a colazione - Photopress05 (ph Martina Platone).jpg'
+import photoPress6Original from '../../static/images/luce/CousCous a colazione - Photopress06 (ph Martina Platone).jpg'
+import photoPress7Original from '../../static/images/luce/CousCous a colazione - Photopress07 (ph Martina Platone).jpg'
+import photoPress8Original from '../../static/images/luce/CousCous a colazione - Photopress08 (ph Martina Platone).jpg'
+import photoPress9Original from '../../static/images/luce/CousCous a colazione - Photopress09 (ph Martina Platone).jpg'
 import lyric1 from '../../static/lyrics/luce/Luz.pdf?url'
 import lyric2 from '../../static/lyrics/luce/Io sarei qui.pdf?url'
 import lyric3 from '../../static/lyrics/luce/Misake.pdf?url'
@@ -26,7 +30,7 @@ const LucePressKit = () => {
 
   const handleDownloadImage = () => {
     const link = document.createElement('a')
-    link.href = albumCover
+    link.href = albumCoverOriginal
     link.download = 'luce_album_cover.jpg'
     document.body.appendChild(link)
     link.click()
@@ -37,16 +41,16 @@ const LucePressKit = () => {
     try {
       const zip = new JSZip()
       const photos = [
-        { url: albumCover, name: 'cover.jpg' },
-        { url: photoPress1, name: 'Photopress01.jpg' },
-        { url: photoPress2, name: 'Photopress02.jpg' },
-        { url: photoPress3, name: 'Photopress03.jpg' },
-        { url: photoPress4, name: 'Photopress04.jpg' },
-        { url: photoPress5, name: 'Photopress05.jpg' },
-        { url: photoPress6, name: 'Photopress06.jpg' },
-        { url: photoPress7, name: 'Photopress07.jpg' },
-        { url: photoPress8, name: 'Photopress08.jpg' },
-        { url: photoPress9, name: 'Photopress09.jpg' },
+        { url: albumCoverOriginal, name: 'cover.jpg' },
+        { url: photoPress1Original, name: 'Photopress01.jpg' },
+        { url: photoPress2Original, name: 'Photopress02.jpg' },
+        { url: photoPress3Original, name: 'Photopress03.jpg' },
+        { url: photoPress4Original, name: 'Photopress04.jpg' },
+        { url: photoPress5Original, name: 'Photopress05.jpg' },
+        { url: photoPress6Original, name: 'Photopress06.jpg' },
+        { url: photoPress7Original, name: 'Photopress07.jpg' },
+        { url: photoPress8Original, name: 'Photopress08.jpg' },
+        { url: photoPress9Original, name: 'Photopress09.jpg' },
       ]
 
       // Fetch all images and add them to the zip

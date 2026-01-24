@@ -3,12 +3,20 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import JSZip from 'jszip'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
-import albumCover from '../../static/images/alma/album_cover.jpg'
-import photoPress1 from '../../static/images/alma/photopress1.jpg'
-import photoPress2 from '../../static/images/alma/photopress2.jpg'
-import photoPress3 from '../../static/images/alma/photopress3.jpg'
-import photoPress4 from '../../static/images/alma/photopress4.jpg'
-import photoPress5 from '../../static/images/alma/photopress5.jpg'
+// Optimized images for display
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import albumCover from '../../static/images/alma/album_cover.jpg?w=1600&format=webp&quality=85'
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import photoPress3 from '../../static/images/alma/photopress3.jpg?w=1600&format=webp&quality=85'
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import photoPress4 from '../../static/images/alma/photopress4.jpg?w=1600&format=webp&quality=85'
+// Original images for downloads (keep original quality)
+import albumCoverOriginal from '../../static/images/alma/album_cover.jpg'
+import photoPress1Original from '../../static/images/alma/photopress1.jpg'
+import photoPress2Original from '../../static/images/alma/photopress2.jpg'
+import photoPress3Original from '../../static/images/alma/photopress3.jpg'
+import photoPress4Original from '../../static/images/alma/photopress4.jpg'
+import photoPress5Original from '../../static/images/alma/photopress5.jpg'
 import lyric1 from '../../static/lyrics/alma/1.Lentamente.pdf?url'
 import lyric2 from '../../static/lyrics/alma/2.Sempre solə.pdf?url'
 import lyric3 from '../../static/lyrics/alma/3.Arco-iris.pdf?url'
@@ -27,7 +35,7 @@ const AlmaPressKit = () => {
 
   const handleDownloadImage = () => {
     const link = document.createElement('a')
-    link.href = albumCover
+    link.href = albumCoverOriginal
     link.download = 'alma_album_cover.jpg'
     document.body.appendChild(link)
     link.click()
@@ -38,12 +46,12 @@ const AlmaPressKit = () => {
     try {
       const zip = new JSZip()
       const photos = [
-        { url: albumCover, name: 'album_cover.jpg' },
-        { url: photoPress1, name: 'photopress1.jpg' },
-        { url: photoPress2, name: 'photopress2.jpg' },
-        { url: photoPress3, name: 'photopress3.jpg' },
-        { url: photoPress4, name: 'photopress4.jpg' },
-        { url: photoPress5, name: 'photopress5.jpg' },
+        { url: albumCoverOriginal, name: 'album_cover.jpg' },
+        { url: photoPress1Original, name: 'photopress1.jpg' },
+        { url: photoPress2Original, name: 'photopress2.jpg' },
+        { url: photoPress3Original, name: 'photopress3.jpg' },
+        { url: photoPress4Original, name: 'photopress4.jpg' },
+        { url: photoPress5Original, name: 'photopress5.jpg' },
       ]
 
       // Fetch all images and add them to the zip

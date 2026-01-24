@@ -1,16 +1,23 @@
-import { useRouteError, isRouteErrorResponse } from 'react-router-dom'
+import { useRouteError, isRouteErrorResponse, useLocation } from 'react-router-dom'
 import { Box, Typography } from '@mui/material'
 import NotFound from '../../static/not-found.jpeg'
 import GenericError from '../../static/generic-error.jpeg'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
-import { useTranslation } from 'react-i18next'
 
 export default function ErrorPage() {
   const error = useRouteError()
-  const { t } = useTranslation()
-  console.error(error)
+  const location = useLocation()
+  
+  // Log error if it exists
+  if (error) {
+    console.error(error)
+  }
 
-  const is404 = isRouteErrorResponse(error) && error.status === 404
+  // Check if it's a 404: either from error response or if we're on a catch-all route (unmatched path)
+  // When error is undefined/null and we're not on root, it's likely a 404 from catch-all route
+  const is404 = 
+    (isRouteErrorResponse(error) && error.status === 404) ||
+    (!error && location.pathname !== '/' && !location.pathname.match(/^\/(it|en)$/))
 
   return (
     <Box
@@ -26,7 +33,7 @@ export default function ErrorPage() {
       {is404 ? (
         <>
           <Typography variant="h5" sx={{ marginBottom: '1em', textAlign: 'center' }}>
-            {t('error.notFound')}
+            The page you are looking for cannot be found!
           </Typography>
           <img
             src={`${NotFound}?fit=crop&auto=format`}
@@ -37,10 +44,10 @@ export default function ErrorPage() {
       ) : (
         <>
           <Typography variant="h5" sx={{ marginBottom: '1em', textAlign: 'center' }}>
-            {t('error.oops')}
+            Oops!
           </Typography>
           <Typography variant="body1" sx={{ marginBottom: '1em', textAlign: 'center' }}>
-            {t('error.unexpectedError')}
+            Sorry, an unexpected error has occurred.
           </Typography>
           <img
             src={`${GenericError}?fit=crop&auto=format`}

@@ -5,9 +5,13 @@ import DrawerAppBar from '../AppBar/DrawerAppBar'
 import Footer from '../Footer/Footer'
 import rassegnaStampaPDF from '../../static/media-coverage/CousCousAColazione_RassegnaStampa.pdf?url'
 import rassegnaStampaAlmaPDF from '../../static/media-coverage/CousCousAColazione_RassegnaStampa_Alma.pdf?url'
-import almaCover from '../../static/images/alma/album_cover.jpg'
-import luceCover from '../../static/images/luce/cover.jpg'
-import pressPhoto from '../../static/images/alma/photopress5.jpg'
+// Optimized images for display
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import almaCover from '../../static/images/alma/album_cover.jpg?w=900&format=webp&quality=85'
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import luceCover from '../../static/images/luce/cover.jpg?w=900&format=webp&quality=85'
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import pressPhoto from '../../static/images/alma/photopress5.jpg?w=1600&format=webp&quality=85'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../hooks/useLanguage'
 
@@ -193,7 +197,7 @@ const PressKit = () => {
                   <Button
                     variant="outlined"
                     component={RouterLink}
-                    to={getLocalizedPath('/alma-presskit')}
+                    to={getLocalizedPath('/media/alma-presskit')}
                     fullWidth
                   >
                     {t('pressKit.almaPressKit')}
@@ -248,7 +252,7 @@ const PressKit = () => {
                   <Button
                     variant="outlined"
                     component={RouterLink}
-                    to={getLocalizedPath('/luce-presskit')}
+                    to={getLocalizedPath('/media/luce-presskit')}
                     fullWidth
                   >
                     {t('pressKit.lucePressKit')}

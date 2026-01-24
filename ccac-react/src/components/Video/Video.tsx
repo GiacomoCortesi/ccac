@@ -11,11 +11,21 @@ import noiVideo from '../../static/video/noi canvas.mp4'
 import secoliVideo from '../../static/video/secoli canvas.mp4'
 import trazELevaVideo from '../../static/video/traz e leva canvas.mp4'
 import unaVitaATreVideo from '../../static/video/una vita a tre canvas.mp4'
+import lentamenteThumb from '../../static/video/lentamente-thumb.jpg'
+import sempreSolaThumb from '../../static/video/sempre-sola-thumb.jpg'
+import arcoIrisThumb from '../../static/video/arcoiris-thumb.jpg'
+import ventAnniThumb from '../../static/video/ventanni-thumb.jpg'
+import almaThumb from '../../static/video/alma-thumb.jpg'
+import noiThumb from '../../static/video/noi-thumb.jpg'
+import secoliThumb from '../../static/video/secoli-thumb.jpg'
+import trazELevaThumb from '../../static/video/traz-e-leva-thumb.jpg'
+import unaVitaATreThumb from '../../static/video/una-vita-a-tre-thumb.jpg'
 
 interface VideoTrack {
   id: string
   title: string
   videoSrc: string
+  posterSrc: string
   soundcloudUrl: string
   soundcloudTrackUrl: string
   soundcloudTitle: string
@@ -26,6 +36,7 @@ const videoTracks: VideoTrack[] = [
     id: 'lentamente',
     title: 'Lentamente',
     videoSrc: lentamenteVideo,
+    posterSrc: lentamenteThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2212384778%3Fsecret_token%3Ds-xEBQX28pZVy&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -36,6 +47,7 @@ const videoTracks: VideoTrack[] = [
     id: 'sempre-sola',
     title: 'Sempre solə',
     videoSrc: sempreSolaVideo,
+    posterSrc: sempreSolaThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2216584076%3Fsecret_token%3Ds-i9sDPf82bZn&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -46,6 +58,7 @@ const videoTracks: VideoTrack[] = [
     id: 'arco-iris',
     title: 'Arco-íris',
     videoSrc: arcoIrisVideo,
+    posterSrc: arcoIrisThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2216583521%3Fsecret_token%3Ds-a6Rc1Kpo6xr&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -56,6 +69,7 @@ const videoTracks: VideoTrack[] = [
     id: 'ventanni',
     title: "Vent'anni",
     videoSrc: ventAnniVideo,
+    posterSrc: ventAnniThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2212385525%3Fsecret_token%3Ds-g64ijbMJt6j&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -66,6 +80,7 @@ const videoTracks: VideoTrack[] = [
     id: 'alma',
     title: 'Alma',
     videoSrc: almaVideo,
+    posterSrc: almaThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2213933237%3Fsecret_token%3Ds-cX07TL5FA9F&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -76,6 +91,7 @@ const videoTracks: VideoTrack[] = [
     id: 'noi',
     title: 'Noi',
     videoSrc: noiVideo,
+    posterSrc: noiThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2212384508%3Fsecret_token%3Ds-PPVPrB33RS4&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -86,6 +102,7 @@ const videoTracks: VideoTrack[] = [
     id: 'secoli',
     title: 'Secoli',
     videoSrc: secoliVideo,
+    posterSrc: secoliThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2213934677%3Fsecret_token%3Ds-dsE9iBr7TJ8&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -96,6 +113,7 @@ const videoTracks: VideoTrack[] = [
     id: 'traz-e-leva',
     title: 'Traz e leva',
     videoSrc: trazELevaVideo,
+    posterSrc: trazELevaThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2212383932%3Fsecret_token%3Ds-PEDRBzrzGKF&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -106,6 +124,7 @@ const videoTracks: VideoTrack[] = [
     id: 'una-vita-a-tre',
     title: 'Una vita a tre',
     videoSrc: unaVitaATreVideo,
+    posterSrc: unaVitaATreThumb,
     soundcloudUrl:
       'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2216585174%3Fsecret_token%3Ds-8CrOSgwsnXR&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     soundcloudTrackUrl:
@@ -121,16 +140,21 @@ const Video = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const videoRef = useRef<HTMLVideoElement>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set([0])) // Preload first video
 
   const handleVideoSelect = (index: number) => {
     setSelectedIndex(index)
+    // Mark video as loaded when selected
+    setLoadedVideos(prev => new Set(prev).add(index))
   }
 
   useEffect(() => {
     // Reset video playback when switching tracks
     if (videoRef.current) {
       videoRef.current.load()
-      videoRef.current.play()
+      videoRef.current.play().catch(() => {
+        // Handle autoplay restrictions gracefully
+      })
     }
   }, [selectedIndex])
 
@@ -147,6 +171,34 @@ const Video = () => {
       }
     }
   }, [selectedIndex, matchesSM])
+
+  // Intersection Observer for lazy loading thumbnail videos
+  useEffect(() => {
+    if (!scrollContainerRef.current) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0', 10)
+            setLoadedVideos(prev => new Set(prev).add(index))
+          }
+        })
+      },
+      {
+        root: scrollContainerRef.current,
+        rootMargin: '50px', // Start loading 50px before visible
+        threshold: 0.1,
+      }
+    )
+
+    const videoElements = scrollContainerRef.current.querySelectorAll('[data-index]')
+    videoElements.forEach((el) => observer.observe(el))
+
+    return () => {
+      videoElements.forEach((el) => observer.unobserve(el))
+    }
+  }, [])
 
   const currentTrack = videoTracks[selectedIndex]
 
@@ -174,6 +226,7 @@ const Video = () => {
           loop
           muted
           playsInline
+          preload="auto"
           style={{
             width: '100%',
             height: '100%',
@@ -220,59 +273,87 @@ const Video = () => {
           }}
           ref={scrollContainerRef}
         >
-          {videoTracks.map((track, index) => (
-            <Box
-              key={track.id}
-              onClick={() => handleVideoSelect(index)}
-              sx={{
-                position: 'relative',
-                cursor: 'pointer',
-                flexShrink: 0,
-                width: matchesSM ? '200px' : selectedIndex === index ? '300px' : '150px',
-                height: matchesSM ? '112px' : selectedIndex === index ? '169px' : '84px',
-                transition: 'all 0.3s ease',
-                opacity: selectedIndex === index ? 1 : 0.6,
-                border:
-                  selectedIndex === index
-                    ? `3px solid ${theme.palette.secondary.main}`
-                    : '3px solid transparent',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                '&:hover': {
-                  opacity: 1,
-                  transform: 'scale(1.05)',
-                },
-              }}
-            >
-              <video
-                src={track.videoSrc}
-                muted
-                playsInline
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-              {/* Video title overlay */}
+          {videoTracks.map((track, index) => {
+            const isLoaded = loadedVideos.has(index)
+            const isSelected = selectedIndex === index
+
+            return (
               <Box
+                key={track.id}
+                data-index={index}
+                onClick={() => handleVideoSelect(index)}
                 sx={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                  padding: '0.5em',
-                  color: 'white',
-                  fontFamily: 'couscous-regular',
-                  fontSize: matchesSM ? '0.875rem' : selectedIndex === index ? '1.1rem' : '0.9rem',
-                  textAlign: 'center',
+                  position: 'relative',
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  width: matchesSM ? '200px' : isSelected ? '300px' : '150px',
+                  height: matchesSM ? '112px' : isSelected ? '169px' : '84px',
+                  transition: 'all 0.3s ease',
+                  opacity: isSelected ? 1 : 0.6,
+                  border:
+                    isSelected
+                      ? `3px solid ${theme.palette.secondary.main}`
+                      : '3px solid transparent',
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  backgroundColor: '#000',
+                  '&:hover': {
+                    opacity: 1,
+                    transform: 'scale(1.05)',
+                  },
                 }}
               >
-                {track.title}
+                {isLoaded ? (
+                  <video
+                    src={track.videoSrc}
+                    poster={track.posterSrc}
+                    muted
+                    playsInline
+                    preload="none"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                ) : (
+                  // Placeholder with poster image while video loads
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      backgroundImage: `url(${track.posterSrc})`,
+                      backgroundColor: '#1a1a1a',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#666',
+                      fontSize: '0.875rem',
+                    }}
+                  />
+                )}
+                {/* Video title overlay */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                    padding: '0.5em',
+                    color: 'white',
+                    fontFamily: 'couscous-regular',
+                    fontSize: matchesSM ? '0.875rem' : isSelected ? '1.1rem' : '0.9rem',
+                    textAlign: 'center',
+                  }}
+                >
+                  {track.title}
+                </Box>
               </Box>
-            </Box>
-          ))}
+            )
+          })}
         </Box>
       </Box>
 

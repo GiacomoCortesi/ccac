@@ -33,11 +33,6 @@
     "booking": "booking:",
     "whatsapp": "whatsapp:"
   },
-  "error": {
-    "notFound": "The page you are looking for cannot be found!",
-    "oops": "Oops!",
-    "unexpectedError": "Sorry, an unexpected error has occurred."
-  },
   "home": {
     "albumCoverAlt": "CousCous a colazione Alma LP cover"
   },

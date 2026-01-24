@@ -75,15 +75,15 @@ export const router = createBrowserRouter([
         element: <Gallery />,
       },
       {
-        path: 'presskit',
+        path: 'media',
         element: <PressKit />,
       },
       {
-        path: 'alma-presskit',
+        path: 'media/alma-presskit',
         element: <AlmaPressKit />,
       },
       {
-        path: 'luce-presskit',
+        path: 'media/luce-presskit',
         element: <LucePressKit />,
       },
       {
@@ -94,7 +94,17 @@ export const router = createBrowserRouter([
         path: 'pay',
         element: <PayPal />,
       },
+      // Catch-all route for unmatched paths within language routes
+      {
+        path: '*',
+        element: <ErrorPage />,
+      },
     ],
+  },
+  // Catch-all route for root-level unmatched paths
+  {
+    path: '*',
+    element: <Navigate to={`/${getDefaultLanguage()}`} replace />,
   },
   // Admin routes (no language prefix)
   {

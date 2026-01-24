@@ -2,7 +2,9 @@ import { useMediaQuery, useTheme } from '@mui/material'
 import Box from '@mui/material/Box'
 import { Fragment, useRef, useEffect } from 'react'
 import bgVideo from '../../static/bg_video2_hardcrop.mov'
-import almaCover from '../../static/images/alma/album_cover.jpg'
+// Optimized image for display
+// @ts-expect-error - vite-imagetools query parameters not recognized by TypeScript
+import almaCover from '../../static/images/alma/album_cover.jpg?w=1000&format=webp&quality=85'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
 import Footer from '../Footer/Footer'
 
@@ -68,8 +70,8 @@ const Home = () => {
             }}
           >
             <img
+              src={almaCover}
               alt={'CousCous a colazione Alma LP cover'}
-              src={`${almaCover}?w=500px&h=500px&fit=crop&auto=format`}
             ></img>
           </Box>
         </Box>

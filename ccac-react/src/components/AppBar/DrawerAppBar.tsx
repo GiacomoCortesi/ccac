@@ -74,7 +74,7 @@ export default function DrawerAppBar() {
       </RouterLink>
       <RouterLink
         style={{ textDecoration: 'none' }}
-        to={getLocalizedPath('/presskit')}
+        to={getLocalizedPath('/media')}
       >
         <Typography
           color={theme.palette.primary.dark}
