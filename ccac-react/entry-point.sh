@@ -19,6 +19,25 @@ location /api/ {
 EOF
 
   cat > "$LOCATION_DIR/default.conf" << 'EOF'
+# Serve assets directory with proper caching
+location /assets/ {
+    root /usr/share/nginx/html/ccac;
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+    access_log off;
+    try_files $uri =404;
+}
+
+# Serve root-level static files
+location ~ ^/(manifest\.json|robots\.txt|ccac_luce\.ico)$ {
+    root /usr/share/nginx/html/ccac;
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+    access_log off;
+    try_files $uri =404;
+}
+
+# SPA fallback - must be last
 location / {
     root /usr/share/nginx/html/ccac;
     try_files $uri $uri/ /index.html;
