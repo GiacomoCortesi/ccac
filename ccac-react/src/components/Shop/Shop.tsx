@@ -12,6 +12,8 @@ import ImageHover from '../ImageHover/ImageHover'
 import Loading from '../Loading/Loading'
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import { IProduct } from '../../models/product'
+import { useTranslation } from 'react-i18next'
+import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Shop() {
   const theme = useTheme()
@@ -21,6 +23,8 @@ export default function Shop() {
   const data = productsResponse.data
   const error = productsResponse.error
   const isLoading = productsResponse.isLoading
+  const { t } = useTranslation()
+  const { getLocalizedPath } = useLanguage()
   const getImageListCols = () => {
     if (matchesSM) {
       return 1
@@ -35,7 +39,7 @@ export default function Shop() {
       <AppBar />
       {isLoading && <Loading />}
       {error && <ErrorDisplay error={error} />}
-      {data?.length === 0 && 'No product available in the shop...'}
+      {data?.length === 0 && t('shop.noProducts')}
       {data && (
         <ImageList cols={getImageListCols()}>
           {Array.isArray(data) &&
@@ -44,7 +48,7 @@ export default function Shop() {
                 <ImageListItem key={index}>
                   <RouterLink
                     style={{ display: 'flex', justifyContent: 'center' }}
-                    to={`/products/${item.id}`}
+                    to={getLocalizedPath(`/products/${item.id}`)}
                   >
                     <ImageHover src={item.images[0]} title={item.title} />
                   </RouterLink>

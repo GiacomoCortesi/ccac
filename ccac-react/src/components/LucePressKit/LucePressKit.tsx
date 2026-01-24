@@ -2,6 +2,7 @@ import { useMediaQuery, useTheme, Divider, Button, Link } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import JSZip from 'jszip'
+import DrawerAppBar from '../AppBar/DrawerAppBar'
 import albumCover from '../../static/images/luce/cover.jpg'
 import photoPress1 from '../../static/images/luce/CousCous a colazione - Photopress01 (ph Martina Platone).jpg'
 import photoPress2 from '../../static/images/luce/CousCous a colazione - Photopress02 (ph Martina Platone).jpg'
@@ -16,10 +17,12 @@ import lyric1 from '../../static/lyrics/luce/Luz.pdf?url'
 import lyric2 from '../../static/lyrics/luce/Io sarei qui.pdf?url'
 import lyric3 from '../../static/lyrics/luce/Misake.pdf?url'
 import lyric4 from '../../static/lyrics/luce/Conquista.pdf?url'
+import { useTranslation } from 'react-i18next'
 
 const LucePressKit = () => {
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+  const { t } = useTranslation()
 
   const handleDownloadImage = () => {
     const link = document.createElement('a')
@@ -107,15 +110,17 @@ const LucePressKit = () => {
   }
 
   return (
-    <Box
-      sx={{
-        minHeight: window.innerHeight,
-        width: matchesSM ? '100%' : '60%',
-        margin: '0 auto',
-        padding: matchesSM ? '2em' : '4em',
-        paddingTop: '9.5em',
-      }}
-    >
+    <>
+      <DrawerAppBar />
+      <Box
+        sx={{
+          minHeight: window.innerHeight,
+          width: matchesSM ? '100%' : '60%',
+          margin: '0 auto',
+          padding: matchesSM ? '2em' : '4em',
+          paddingTop: '9.5em',
+        }}
+      >
       <Box
         sx={{
           display: 'flex',
@@ -125,14 +130,14 @@ const LucePressKit = () => {
         }}
       >
         <Typography variant="h6" component="h1" align="center">
-          PRESS KIT
+          {t('lucePressKit.pressKit')}
         </Typography>
         <Divider sx={{ width: '100%' }} />
         <Typography variant="h1" component="h1" align="center">
-          Luce
+          {t('lucePressKit.luce')}
         </Typography>
         <Typography variant="h5" component="h2" align="center">
-          il nuovo EP dei CousCous a colazione
+          {t('lucePressKit.newEP')}
         </Typography>
         <Divider sx={{ width: '100%' }} />
         <Button variant="outlined" sx={{ marginTop: '1em' }}>
@@ -142,7 +147,7 @@ const LucePressKit = () => {
             underline="none"
             variant="h6"
           >
-            Ascolta ora il nuovo EP &quot;LUCE&quot;
+            {t('lucePressKit.listenNow')}
           </Link>
         </Button>
         <Box
@@ -236,13 +241,13 @@ const LucePressKit = () => {
           }}
         >
           <Typography variant="body1" align="left" paragraph>
-            Luce è il nuovo EP dei CousCous a colazione, disponibile da venerdì 20 ottobre in rotazione radiofonica e su tutte le piattaforme di streaming digitale.
+            {t('lucePressKit.releaseInfo')}
           </Typography>
           <Typography variant="body1" align="left" paragraph>
-            Anticipato dal singolo Conquista, Luce è il punto d&apos;arrivo di un viaggio introspettivo alla ricerca di noi stessi durante il quale i CousCous a colazione interpretano in diverse accezioni il concetto di luce, che permea e fa da collante tra tutti i brani del nuovo EP: in &quot;Luz&quot;, la luce ha un valore positivo e viene intesa come quel momento lucido, nella frenetica vita moderna dove niente è facile e tutto pare effimero, in cui capiamo che è necessario fermarci un momento, trascurare la superficialità e concentrarci su ciò che è reale e concreto.
+            {t('lucePressKit.introspectiveJourney')}
           </Typography>
           <Typography variant="body1" align="left" paragraph>
-            In &quot;Io sarei qui&quot;, la luce è sinonimo un amore inaspettato che irradia l&apos;animo ed il cuore, come una spinta interiore che muove i sentimenti e le emozioni umane. Nel brano &quot;Misake&quot; la luce è accettazione a fronte dell&apos;incertezza e del caos in cui siamo quotidianamente avvolti e risucchiati. &quot;Conquista&quot; è un incoraggiamento a non arrendersi mai, a rialzarsi sempre e continuare a lottare alla ricerca del fine ultimo, la proverbiale luce in fondo al tunnel.
+            {t('lucePressKit.trackInterpretations')}
           </Typography>
         </Box>
         <Divider sx={{ width: '100%' }} />
@@ -256,28 +261,29 @@ const LucePressKit = () => {
           }}
         >
           <Typography variant="body1" align="left">
-            Tutti i brani dell&apos;EP &quot;Luce&quot; sono stati scritti dai CousCous a colazione e prodotti da Mattia Mennella.
+            {t('lucePressKit.productionCredits')}
           </Typography>
           <Typography variant="body1" align="left">
-            Il mix ed il master sono stati curati da Ivano Giovedì.
+            {t('lucePressKit.mixMaster')}
           </Typography>
           <Typography variant="body1" align="left">
-            Le fotografie e l&apos;artwork sono di Martina Platone.
+            {t('lucePressKit.photography')}
           </Typography>
           <Typography variant="body1" align="left">
-            L&apos;EP è stato realizzato con il contributo di Centro Musica Modena (per il bando Encoder).
+            {t('lucePressKit.contribution')}
           </Typography>
         </Box>
         <Divider sx={{ width: '100%' }} />
         <Button sx={{ minWidth: '250px' }} variant="outlined" onClick={handleDownloadAllPhotos}>
-          Download PhotoPress
+          {t('lucePressKit.downloadPhotoPress')}
         </Button>
         <Button sx={{ minWidth: '250px' }} variant="outlined" onClick={handleDownloadLyrics}>
-          Download Lyrics
+          {t('lucePressKit.downloadLyrics')}
         </Button>
         <Divider sx={{ width: '100%' }} />
       </Box>
     </Box>
+    </>
   )
 }
 

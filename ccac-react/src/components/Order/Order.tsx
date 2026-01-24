@@ -8,10 +8,12 @@ import ContactMail from '../Contact/ContactMail'
 import ContactWA from '../Contact/ContactWA'
 import Loading from '../Loading/Loading'
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
+import { useTranslation } from 'react-i18next'
 
 const Order = () => {
   const { id } = useParams()
   const { data, error, isLoading } = useGetOrder(id ? id : '')
+  const { t } = useTranslation()
 
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
@@ -24,34 +26,34 @@ const Order = () => {
       {data && (
         <Paper variant={'outlined'}>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Ordine {data.id}
+            {t('order.order')} {data.id}
           </Typography>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Stato: {data.status.message}
+            {t('order.status')}: {data.status.message}
           </Typography>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
             {data.status.description}
           </Typography>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Data ordine: {data.date}
+            {t('order.orderDate')}: {data.date}
           </Typography>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Metodo di spedizione: {data.shipping.method}
+            {t('order.shippingMethod')}: {data.shipping.method}
           </Typography>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Spesa spedizione: {data.shipping.cost.value}{' '}
+            {t('order.shippingCost')}: {data.shipping.cost.value}{' '}
             {data.shipping.cost.currency}
           </Typography>
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Spesa carrello: {data.cart.total.value} {data.cart.total.currency}
+            {t('order.cartCost')}: {data.cart.total.value} {data.cart.total.currency}
           </Typography>
           <Divider />
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Spesa complessiva: {data.total.value} {data.total.currency}
+            {t('order.totalCost')}: {data.total.value} {data.total.currency}
           </Typography>
           <br />
           <Typography sx={{ marginTop: 1.25, marginLeft: 1.25 }}>
-            Per qualsiasi cosa, contattaci:
+            {t('order.contactUs')}
           </Typography>
           <ContactMail variant={matchesMD ? 'body2' : 'body1'} />
           <ContactWA variant={matchesMD ? 'body2' : 'body1'} />

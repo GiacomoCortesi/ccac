@@ -3,9 +3,11 @@ import { Box, Typography } from '@mui/material'
 import NotFound from '../../static/not-found.jpeg'
 import GenericError from '../../static/generic-error.jpeg'
 import DrawerAppBar from '../AppBar/DrawerAppBar'
+import { useTranslation } from 'react-i18next'
 
 export default function ErrorPage() {
   const error = useRouteError()
+  const { t } = useTranslation()
   console.error(error)
 
   const is404 = isRouteErrorResponse(error) && error.status === 404
@@ -24,7 +26,7 @@ export default function ErrorPage() {
       {is404 ? (
         <>
           <Typography variant="h5" sx={{ marginBottom: '1em', textAlign: 'center' }}>
-            The page you are looking for cannot be found!
+            {t('error.notFound')}
           </Typography>
           <img
             src={`${NotFound}?fit=crop&auto=format`}
@@ -35,10 +37,10 @@ export default function ErrorPage() {
       ) : (
         <>
           <Typography variant="h5" sx={{ marginBottom: '1em', textAlign: 'center' }}>
-            Oops!
+            {t('error.oops')}
           </Typography>
           <Typography variant="body1" sx={{ marginBottom: '1em', textAlign: 'center' }}>
-            Sorry, an unexpected error has occurred.
+            {t('error.unexpectedError')}
           </Typography>
           <img
             src={`${GenericError}?fit=crop&auto=format`}

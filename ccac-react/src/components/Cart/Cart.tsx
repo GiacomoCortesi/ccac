@@ -16,9 +16,13 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
 import Shipping from '../Shipping/Shipping'
+import { useTranslation } from 'react-i18next'
+import { useLocalizedNavigate } from '../../hooks/useLocalizedNavigate'
 
 export default function Cart() {
   const { data, error, isLoading } = useGetCart()
+  const { t } = useTranslation()
+  const navigate = useLocalizedNavigate()
 
   const cartItems = data?.items?.map((cartItem: ICartItem, index: number) => {
     return (
@@ -34,7 +38,6 @@ export default function Cart() {
     )
   })
 
-  const navigate = useNavigate()
   const [shippingMethod, setShippingMethod] = useState('Ritiro')
 
   const theme = useTheme()
@@ -71,7 +74,7 @@ export default function Cart() {
               }}
             >
               <Typography variant={matchesMD ? 'h6' : 'h4'}>
-                non hai ancora messo nulla nel carrello, cosa aspetti?
+                {t('cart.empty')}
               </Typography>
             </Box>
           ) : (
@@ -86,7 +89,7 @@ export default function Cart() {
               />
             )}
             <Typography marginBottom={3}>
-              Totale: {data?.total?.value} {data?.total?.currency}
+              {t('cart.total')}: {data?.total?.value} {data?.total?.currency}
             </Typography>
           </Box>
           <Button
@@ -94,7 +97,7 @@ export default function Cart() {
             sx={{ marginLeft: 1.75 }}
             onClick={handleClick}
           >
-            <Typography variant={'h5'}>Paga con Paypal</Typography>
+            <Typography variant={'h5'}>{t('cart.payWithPaypal')}</Typography>
           </Button>
         </Box>
       )}

@@ -9,12 +9,16 @@ import Coffee from '../Coffee/Coffee'
 import { useMediaQuery, useTheme } from '@mui/material'
 import { Fragment } from 'react'
 import AppBarSimple from './AppBarSimple'
+import { useTranslation } from 'react-i18next'
+import { useLanguage } from '../../hooks/useLanguage'
 
 const drawerWidth = 240
 
 export default function DrawerAppBar() {
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.up('sm'))
+  const { t } = useTranslation()
+  const { getLocalizedPath } = useLanguage()
 
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
@@ -35,61 +39,61 @@ export default function DrawerAppBar() {
         gap: 0.5,
       }}
     >
-      <RouterLink to='/' style={{ textDecoration: 'none' }}>
+      <RouterLink to={getLocalizedPath('/')} style={{ textDecoration: 'none' }}>
         <Typography
           color={theme.palette.primary.dark}
           variant={'h4'}
           style={{ fontFamily: 'couscous-regular' }}
         >
-          HOME
+          {t('navigation.home')}
         </Typography>
       </RouterLink>
       <RouterLink
         style={{ textDecoration: 'none' }}
-        to={'/video'}
+        to={getLocalizedPath('/video')}
       >
         <Typography
           color={theme.palette.primary.dark}
           variant={'h4'}
           style={{ fontFamily: 'couscous-regular' }}
         >
-          ASCOLTA
+          {t('navigation.listen')}
         </Typography>
       </RouterLink>
       <RouterLink
         style={{ textDecoration: 'none' }}
-        to={'/products'}
+        to={getLocalizedPath('/products')}
       >
         <Typography
           color={theme.palette.primary.dark}
           variant={'h4'}
           style={{ fontFamily: 'couscous-regular' }}
         >
-          COMPRA
+          {t('navigation.buy')}
         </Typography>
       </RouterLink>
       <RouterLink
         style={{ textDecoration: 'none' }}
-        to={'/presskit'}
+        to={getLocalizedPath('/presskit')}
       >
         <Typography
           color={theme.palette.primary.dark}
           variant={'h4'}
           style={{ fontFamily: 'couscous-regular' }}
         >
-          MEDIA
+          {t('navigation.media')}
         </Typography>
       </RouterLink>
       <RouterLink
         style={{ textDecoration: 'none' }}
-        to={'/contact'}
+        to={getLocalizedPath('/contact')}
       >
         <Typography
           color={theme.palette.primary.dark}
           variant={'h4'}
           style={{ fontFamily: 'couscous-regular' }}
         >
-          CONTATTI
+          {t('navigation.contact')}
         </Typography>
       </RouterLink>
       <Box style={{ marginTop: 'auto', marginBottom: 10, marginLeft: 10, marginRight: 10 }}>

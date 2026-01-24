@@ -13,6 +13,7 @@ import {
 import Box from '@mui/material/Box'
 import React from 'react'
 import { IShipping } from '../../models/shipping'
+import { useTranslation } from 'react-i18next'
 
 interface ShippingProps {
   fromShippingComponent: any
@@ -20,6 +21,7 @@ interface ShippingProps {
   shippingOptions: IShipping[]
 }
 const Shipping = (props: ShippingProps) => {
+  const { t } = useTranslation()
   const handleSelectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     props.fromShippingComponent(event.target.value)
   }
@@ -27,7 +29,7 @@ const Shipping = (props: ShippingProps) => {
     <Box>
       <FormControl>
         <FormLabel id='shipping-method-selection'>
-          Metodo di spedizione
+          {t('shipping.method')}
         </FormLabel>
         <RadioGroup
           aria-labelledby='shipping-method-radio-group'

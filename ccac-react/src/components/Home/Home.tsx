@@ -12,39 +12,17 @@ const Home = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const video = videoRef.current
-    if (video) {
-      const handleCanPlay = () => {
-        video.playbackRate = 0.5 // Play at half speed
-        video.play().catch((error) => {
-          console.error('Error playing video:', error)
-        })
-      }
-
-      const handleLoadedMetadata = () => {
-        video.playbackRate = 0.5 // Set playback rate
-      }
-
-      video.addEventListener('canplay', handleCanPlay)
-      video.addEventListener('loadedmetadata', handleLoadedMetadata)
-      
-      // Set playback rate immediately if video is already loaded
-      if (video.readyState >= 1) {
-        video.playbackRate = 0.5
-      }
-
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay)
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata)
-      }
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5 // Play at half speed
+      videoRef.current.play().catch((error) => {
+        console.error('Error playing video:', error)
+      })
     }
   }, [])
 
   return (
     <Fragment>
-      <Box sx={{ position: 'relative', zIndex: 10 }}>
-        <DrawerAppBar />
-      </Box>
+      <DrawerAppBar />
       <Box
         sx={{
           height: window.innerHeight,
@@ -59,36 +37,17 @@ const Home = () => {
           loop
           muted
           playsInline
-          preload="auto"
-          onError={(e) => {
-            console.error('Video error:', e)
-            const video = e.currentTarget
-            console.error('Video error details:', {
-              error: video.error,
-              networkState: video.networkState,
-              readyState: video.readyState,
-              src: video.currentSrc || video.src
-            })
-          }}
-          onLoadedData={() => {
-            console.log('Video loaded successfully')
-          }}
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
             height: '100%',
-            minWidth: '100%',
-            minHeight: '100%',
             objectFit: 'cover',
             zIndex: 0,
-            backgroundColor: '#000',
           }}
         >
-          <source src={bgVideo} type="video/quicktime" />
           <source src={bgVideo} type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
         <Box
           style={{

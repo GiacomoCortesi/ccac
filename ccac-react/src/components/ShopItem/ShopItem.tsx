@@ -21,6 +21,7 @@ import AppBar from '../AppBar/AppBar'
 import ShopSnackbar from '../SnackBar/SnackBar'
 import Loading from '../Loading/Loading'
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
+import { useTranslation } from 'react-i18next'
 
 export default function ShopItem() {
   const { id } = useParams()
@@ -28,6 +29,7 @@ export default function ShopItem() {
   const data = productResponse.data
   const error = productResponse.error
   const isLoading = productResponse.isLoading
+  const { t } = useTranslation()
   const [quantity, setQuantity] = React.useState('1')
   const [size, setSize] = React.useState(
     data?.options?.available_sizes ? data.options.available_sizes[0] : 'M'
@@ -184,13 +186,13 @@ export default function ShopItem() {
                 </Typography>
               )}
               <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-label'>Quantity</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{t('shop.quantity')}</InputLabel>
                 <Select
                   sx={{ marginTop: '1.50em' }}
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
                   value={quantity}
-                  label='Quantity'
+                  label={t('shop.quantity')}
                   onChange={handleQuantityChange}
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((res) => (

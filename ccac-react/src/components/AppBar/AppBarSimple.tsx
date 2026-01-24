@@ -5,24 +5,29 @@ import { Link as RouterLink } from 'react-router-dom/'
 import classes from './AppBarSimple.module.css'
 import Coffee from '../Coffee/Coffee'
 import Box from '@mui/material/Box'
+import { useTranslation } from 'react-i18next'
+import { useLanguage } from '../../hooks/useLanguage'
 
 const AppBarSimple = () => {
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+  const { t } = useTranslation()
+  const { getLocalizedPath } = useLanguage()
 
   return (
     <Fragment>
       <Fragment>
-        {window.location.pathname !== '/' &&
+        {!window.location.pathname.match(/^\/(it|en)(\/|$)/) &&
+        window.location.pathname !== '/' &&
         window.location.pathname !== '/home' ? (
-          <RouterLink to='/'>
+          <RouterLink to={getLocalizedPath('/')}>
             <Typography
               color={theme.palette.primary.light}
               variant={matchesMD ? 'h4' : 'h3'}
               className={classes.topleft}
               style={{ fontFamily: 'couscous-regular' }}
             >
-              HOME
+              {t('navigation.home')}
             </Typography>
           </RouterLink>
         ) : (
@@ -38,44 +43,44 @@ const AppBarSimple = () => {
             >
               <Coffee />
             </Box>
-            <RouterLink to={'/products'}>
+            <RouterLink to={getLocalizedPath('/products')}>
               <Typography
                 color={theme.palette.primary.dark}
                 variant={matchesMD ? 'h4' : 'h3'}
                 className={classes.bottomleft}
                 style={{ fontFamily: 'couscous-regular' }}
               >
-                COMPRA
+                {t('navigation.buy')}
               </Typography>
             </RouterLink>
-            <RouterLink to={'/video'}>
+            <RouterLink to={getLocalizedPath('/video')}>
               <Typography
                 color={theme.palette.primary.dark}
                 variant={matchesMD ? 'h4' : 'h3'}
                 className={classes.bottomright}
                 style={{ fontFamily: 'couscous-regular' }}
               >
-                ASCOLTA
+                {t('navigation.listen')}
               </Typography>
             </RouterLink>
-            <RouterLink to={'/contact'}>
+            <RouterLink to={getLocalizedPath('/contact')}>
               <Typography
                 color={theme.palette.primary.dark}
                 variant={matchesMD ? 'h4' : 'h3'}
                 className={classes.topright}
                 style={{ fontFamily: 'couscous-regular' }}
               >
-                CONTATTI
+                {t('navigation.contact')}
               </Typography>
             </RouterLink>
-            <RouterLink to={'/presskit'}>
+            <RouterLink to={getLocalizedPath('/presskit')}>
               <Typography
                 color={theme.palette.primary.dark}
                 variant={matchesMD ? 'h4' : 'h3'}
                 className={classes.topleft}
                 style={{ fontFamily: 'couscous-regular' }}
               >
-                MEDIA
+                {t('navigation.media')}
               </Typography>
             </RouterLink>
           </Fragment>

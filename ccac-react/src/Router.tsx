@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import Cart from './components/Cart/Cart'
 import Contact from './components/Contact/Contact'
 import ErrorPage from './components/ErrorPage/ErrorPage'
@@ -17,69 +17,86 @@ import AlmaPressKit from './components/AlmaPressKit/AlmaPressKit'
 import LucePressKit from './components/LucePressKit/LucePressKit'
 import PressKit from './components/PressKit/PressKit'
 import Video from './components/Video/Video'
+import { LanguageLayout } from './components/LanguageLayout/LanguageLayout'
+
+// Helper to get default language from browser
+const getDefaultLanguage = (): string => {
+  if (typeof window === 'undefined') return 'it'
+  const browserLang = navigator.language || navigator.languages?.[0] || 'it'
+  return browserLang.startsWith('it') ? 'it' : browserLang.startsWith('en') ? 'en' : 'it'
+}
 
 export const router = createBrowserRouter([
+  // Root redirect to default language
   {
     path: '/',
-    element: <Home />,
+    element: <Navigate to={`/${getDefaultLanguage()}`} replace />,
+  },
+  // Language-prefixed routes
+  {
+    path: '/:lang',
+    element: <LanguageLayout />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: 'home',
+        element: <Home />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
+      },
+      {
+        path: 'tour',
+        element: <Tour />,
+      },
+      {
+        path: 'products',
+        element: <Shop />,
+      },
+      {
+        path: 'products/:id',
+        element: <ShopItem />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
+      },
+      {
+        path: 'order/:id',
+        element: <Order />,
+      },
+      {
+        path: 'gallery',
+        element: <Gallery />,
+      },
+      {
+        path: 'presskit',
+        element: <PressKit />,
+      },
+      {
+        path: 'alma-presskit',
+        element: <AlmaPressKit />,
+      },
+      {
+        path: 'luce-presskit',
+        element: <LucePressKit />,
+      },
+      {
+        path: 'video',
+        element: <Video />,
+      },
+      {
+        path: 'pay',
+        element: <PayPal />,
+      },
+    ],
   },
-  {
-    path: 'home',
-    element: <Home />,
-  },
-  {
-    path: 'contact',
-    element: <Contact />,
-  },
-  {
-    path: 'tour',
-    element: <Tour />,
-  },
-  {
-    path: 'contact',
-    element: <Contact />,
-  },
-  {
-    path: 'products',
-    element: <Shop />,
-  },
-  {
-    path: 'products/:id',
-    element: <ShopItem />,
-  },
-  {
-    path: 'cart',
-    element: <Cart />,
-  },
-  {
-    path: 'order/:id',
-    element: <Order />,
-  },
-  {
-    path: 'gallery',
-    element: <Gallery />,
-  },
-  {
-    path: 'presskit',
-    element: <PressKit />,
-  },
-  {
-    path: 'alma-presskit',
-    element: <AlmaPressKit />,
-  },
-  {
-    path: 'luce-presskit',
-    element: <LucePressKit />,
-  },
-  {
-    path: 'video',
-    element: <Video />,
-  },
-  {
-    path: 'pay',
-    element: <PayPal />,
-  },
+  // Admin routes (no language prefix)
   {
     path: 'login',
     element: <Login />,

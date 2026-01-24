@@ -8,10 +8,14 @@ import rassegnaStampaAlmaPDF from '../../static/media-coverage/CousCousAColazion
 import almaCover from '../../static/images/alma/album_cover.jpg'
 import luceCover from '../../static/images/luce/cover.jpg'
 import pressPhoto from '../../static/images/alma/photopress5.jpg'
+import { useTranslation } from 'react-i18next'
+import { useLanguage } from '../../hooks/useLanguage'
 
 const PressKit = () => {
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+  const { t } = useTranslation()
+  const { getLocalizedPath } = useLanguage()
 
   const handleOpenRassegnaStampa = () => {
     window.open(rassegnaStampaPDF, '_blank')
@@ -47,7 +51,7 @@ const PressKit = () => {
           }}
         >
           <Typography variant="h3" component="h1" align="center">
-            Media
+            {t('pressKit.media')}
           </Typography>
           <Divider sx={{ width: '100%' }} />
           <Box
@@ -84,19 +88,19 @@ const PressKit = () => {
             }}
           >
             <Typography variant="body1" align="left" paragraph>
-              I CousCous a colazione sono un progetto che fonde sonorità pop a influenze world, elettroniche e hip-hop/R&amp;B, creando una nuova sonorità che rifiuta di appartenere a un solo stile, dando vita al POLYPOP, non un genere ma mutevole espressione di loro stessi.
+              {t('pressKit.description1')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              La nascita della band risale al 2020, dall&apos;incontro tra la cantante mozambicana Wilma Fatima Matsombe ed il produttore Mattia Mennella. A completare la formazione si aggiungono Gioele Cangini (chitarra e cori), Antonio Casalino (batteria e drum pad) e Giacomo Cortesi (basso e synthbass).
+              {t('pressKit.description2')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              I brani dei CousCous a colazione, nelle prime pubblicazioni, sono caratterizzati da elementi che traggono origini dal sound mediterraneo e dall&apos;Africa, il culmine di questa sonorità si ha con l&apos;EP &quot;Luce&quot; (2023)
+              {t('pressKit.description3')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              Il sound della Band poi si evolve con l&apos;Album &quot;Alma&quot; (2026) andando in una direzione più cupa e malinconica, influenze più R&amp;B e Dark, mescolando sempre sonorità elettroniche, tipiche del loro POLYPOP.
+              {t('pressKit.description4')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              Dopo la pubblicazione dell&apos;EP &quot;Luce&quot; (2023), i Couscous a colazione iniziano a farsi sentire davvero passando per Afrobix Festival, Memorabilia Festival, Festival del Suono Buono, A Cielo Aperto Festival, Bada Fest, Barezzi Festival, Sghetto Club, Argo 16, Covo Club, Binario69, Cisim, Bravo Caffè, Hanabi, Arena delle Balle di Paglia, La Tenda Club, Bronson Club, Vibra Club, Bachelite Club, Off Topic, Vivi Fortezza, Rumors, Rumagna Unite fino a Es Gremi a Palma Di Maiorca.
+              {t('pressKit.description5')}
             </Typography>
           </Box>
           <Divider sx={{ width: '100%' }} />
@@ -109,7 +113,7 @@ const PressKit = () => {
             }}
           >
             <Typography variant="h4" component="h2" align="left">
-              Timeline Pubblicazioni
+              {t('pressKit.timeline')}
             </Typography>
             <Box
               sx={{
@@ -120,25 +124,25 @@ const PressKit = () => {
               }}
             >
               <Typography variant="body1" align="left">
-                08/01/26: Alma (LP)
+                {t('pressKit.timeline1')}
               </Typography>
               <Typography variant="body1" align="left">
-                23/10/25: Una vita a tre (singolo)
+                {t('pressKit.timeline2')}
               </Typography>
               <Typography variant="body1" align="left">
-                08/09/25: Arco-íris (singolo)
+                {t('pressKit.timeline3')}
               </Typography>
               <Typography variant="body1" align="left">
-                19/06/25: Sempre solə (singolo)
+                {t('pressKit.timeline4')}
               </Typography>
               <Typography variant="body1" align="left">
-                16/05/25: Secoli (singolo)
+                {t('pressKit.timeline5')}
               </Typography>
               <Typography variant="body1" align="left">
-                16/06/23: Luce (EP)
+                {t('pressKit.timeline6')}
               </Typography>
               <Typography variant="body1" align="left">
-                22/09/23: Conquista (singolo)
+                {t('pressKit.timeline7')}
               </Typography>
             </Box>
           </Box>
@@ -189,10 +193,10 @@ const PressKit = () => {
                   <Button
                     variant="outlined"
                     component={RouterLink}
-                    to="/alma-presskit"
+                    to={getLocalizedPath('/alma-presskit')}
                     fullWidth
                   >
-                    Alma Press Kit
+                    {t('pressKit.almaPressKit')}
                   </Button>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -201,7 +205,7 @@ const PressKit = () => {
                     onClick={handleOpenRassegnaStampaAlma}
                     fullWidth
                   >
-                    Alma Rassegna Stampa
+                    {t('pressKit.almaRassegnaStampa')}
                   </Button>
                 </Grid>
               </Grid>
@@ -244,10 +248,10 @@ const PressKit = () => {
                   <Button
                     variant="outlined"
                     component={RouterLink}
-                    to="/luce-presskit"
+                    to={getLocalizedPath('/luce-presskit')}
                     fullWidth
                   >
-                    Luce Press Kit
+                    {t('pressKit.lucePressKit')}
                   </Button>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -256,7 +260,7 @@ const PressKit = () => {
                     onClick={handleOpenRassegnaStampa}
                     fullWidth
                   >
-                    Luce Rassegna Stampa
+                    {t('pressKit.luceRassegnaStampa')}
                   </Button>
                 </Grid>
               </Grid>

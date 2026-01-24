@@ -2,6 +2,7 @@ import { useMediaQuery, useTheme, Divider, Button, Link } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import JSZip from 'jszip'
+import DrawerAppBar from '../AppBar/DrawerAppBar'
 import albumCover from '../../static/images/alma/album_cover.jpg'
 import photoPress1 from '../../static/images/alma/photopress1.jpg'
 import photoPress2 from '../../static/images/alma/photopress2.jpg'
@@ -17,10 +18,12 @@ import lyric6 from '../../static/lyrics/alma/6.Noi.pdf?url'
 import lyric7 from '../../static/lyrics/alma/7.Secoli.pdf?url'
 import lyric8 from '../../static/lyrics/alma/8.Traz e leva.pdf?url'
 import lyric9 from '../../static/lyrics/alma/9.Una vita a tre.pdf?url'
+import { useTranslation } from 'react-i18next'
 
 const AlmaPressKit = () => {
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+  const { t } = useTranslation()
 
   const handleDownloadImage = () => {
     const link = document.createElement('a')
@@ -109,7 +112,9 @@ const AlmaPressKit = () => {
   }
 
   return (
-    <Box
+    <>
+      <DrawerAppBar />
+      <Box
         sx={{
           minHeight: window.innerHeight,
           width: matchesSM ? '100%' : '60%',
@@ -127,14 +132,14 @@ const AlmaPressKit = () => {
           }}
         >
           <Typography variant="h6" component="h1" align="center">
-            PRESS KIT
+            {t('almaPressKit.pressKit')}
           </Typography>
           <Divider sx={{ width: '100%' }} />
           <Typography variant="h1" component="h1" align="center">
-            Alma
+            {t('almaPressKit.alma')}
           </Typography>
           <Typography variant="h5" component="h2" align="center">
-          il nuovo LP dei CousCous a colazione
+          {t('almaPressKit.newLP')}
           </Typography>
           <Divider sx={{ width: '100%' }} />
           <Button variant="outlined" sx={{ marginTop: '1em' }}>
@@ -144,7 +149,7 @@ const AlmaPressKit = () => {
               underline="none"
               variant="h6"
             >
-              Ascolta ora il nuovo LP &quot;ALMA&quot;
+              {t('almaPressKit.listenNow')}
             </Link>
           </Button>
           <Box
@@ -184,7 +189,7 @@ const AlmaPressKit = () => {
                 onClick={handleDownloadImage}
                 sx={{ cursor: 'pointer' }}
               >
-                Download Artwork
+                {t('almaPressKit.downloadArtwork')}
               </Link>
             </Box>
           </Box>
@@ -199,7 +204,7 @@ const AlmaPressKit = () => {
             }}
           >
             <Typography variant="h4" component="h2">
-              Tracklist
+              {t('almaPressKit.tracklist')}
             </Typography>
             <Box
               sx={{
@@ -279,22 +284,22 @@ const AlmaPressKit = () => {
             }}
           >
             <Typography variant="body1" align="left" paragraph>
-              &quot;Alma&quot; nasce dopo due anni di pausa e profonda riflessione, tempo necessario per ritrovarci, interrogarci sulla nostra essenza e sul significato di sentirsi vivi.
+              {t('almaPressKit.description1')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              Il titolo, che in portoghese significa &quot;anima&quot;, racchiude il cuore del disco: una ricerca interiore che si sviluppa in due atti.
+              {t('almaPressKit.description2')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              Il primo atto è un dialogo interiore, un viaggio intimo alla scoperta di se stessi e della propria forza. Una ricerca della luce nascosta che emerge solo quando ci fermiamo e impariamo ad ascoltarci davvero.
+              {t('almaPressKit.description3')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              Nel secondo atto invece l&apos;interiorità trova uno spiraglio per uscire allo scoperto, verso chi ci circonda, verso legami che costruiamo e che ci definiscono. Verso relazioni che esistono, resistono, che si trasformano o si dissolvono, ma che lasciano sempre un segno profondo in ciò che siamo.
+              {t('almaPressKit.description4')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              A unire i due momenti c&apos;è &quot;Alma&quot;, il brano che dà il nome al disco. Un manifesto sonoro e spirituale, dove la ricerca dell&apos;anima culmina in una presa di coscienza espressa nel mantra &quot;Aqui estou&quot; — &quot;Eccomi qui&quot;.
+              {t('almaPressKit.description5')}
             </Typography>
             <Typography variant="body1" align="left" paragraph>
-              Dal punto di vista musicale, Alma abbraccia sonorità più cupe e introspettive, specchio del processo di riflessione e disillusione che accompagna ogni percorso di crescita. È un disco che non ha paura di mostrarsi vulnerabile, ma che proprio da quella fragilità trae la sua forza più autentica.
+              {t('almaPressKit.description6')}
             </Typography>
           </Box>
           <Divider sx={{ width: '100%' }} />
@@ -308,30 +313,30 @@ const AlmaPressKit = () => {
             }}
           >
             <Typography variant="body1" align="left">
-              <strong>Autore e interprete:</strong> CousCous a colazione
+              <strong>{t('almaPressKit.author')}</strong> CousCous a colazione
             </Typography>
             <Typography variant="body1" align="left">
-              <strong>Produttore:</strong> Mattia Mennella
+              <strong>{t('almaPressKit.producer')}</strong> Mattia Mennella
             </Typography>
             <Typography variant="body1" align="left">
-              <strong>Mix &amp; Master:</strong> Waveroof Studio - Ivano Giovedì
+              <strong>{t('almaPressKit.mixMaster')}</strong> Waveroof Studio - Ivano Giovedì
             </Typography>
             <Typography variant="body1" align="left">
-              <strong>Cover photo:</strong> Ilaria Roncucci - Martina platone
+              <strong>{t('almaPressKit.coverPhoto')}</strong> Ilaria Roncucci - Martina platone
             </Typography>
             <Typography variant="body1" align="left">
-              <strong>Photo shooting:</strong> Martina Platone
+              <strong>{t('almaPressKit.photoShooting')}</strong> Martina Platone
             </Typography>
             <Typography variant="body1" align="left">
-              <strong>Visual videos:</strong> Adriano Giotti
+              <strong>{t('almaPressKit.visualVideos')}</strong> Adriano Giotti
             </Typography>
           </Box>
           <Divider sx={{ width: '100%' }} />
           <Button sx={{ minWidth: '250px' }} variant="outlined" onClick={handleDownloadAllPhotos}>
-            Download PhotoPress
+            {t('almaPressKit.downloadPhotoPress')}
           </Button>
           <Button sx={{ minWidth: '250px' }} variant="outlined" onClick={handleDownloadLyrics}>
-            Download Lyrics
+            {t('almaPressKit.downloadLyrics')}
           </Button>
           <Box
             sx={{
@@ -371,10 +376,10 @@ const AlmaPressKit = () => {
             }}
           >
             <Typography variant="body1" align="center">
-              CousCous a colazione - Alma
+              {t('almaPressKit.couscousAlma')}
             </Typography>
             <Typography variant="body1" align="center">
-              <strong>Promozione:</strong>{' '}
+              <strong>{t('almaPressKit.promotion')}</strong>{' '}
               <Link
                 href="https://www.instagram.com/costellosagency/?igsh=MXdtM3MyaXkxbmhhbw%3D%3D#"
                 target="_blank"
@@ -384,12 +389,13 @@ const AlmaPressKit = () => {
               </Link>
             </Typography>
             <Typography variant="body1" align="center">
-              <strong>Info:</strong> couscousacolazione@gmail.com
+              <strong>{t('almaPressKit.info')}</strong> couscousacolazione@gmail.com
             </Typography>
           </Box>
           <Divider sx={{ width: '100%' }} />
         </Box>
       </Box>
+    </>
   )
 }
 

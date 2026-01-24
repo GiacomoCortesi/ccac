@@ -1,5 +1,5 @@
 import { IEvent, IOrganizationEvents } from '../models/event'
-import { useFetch } from '../utils/useFetch'
+import { useFetch } from '../hooks/useFetch'
 import { baseUrl } from './api-product-service'
 
 export function useGetAllEvents() {

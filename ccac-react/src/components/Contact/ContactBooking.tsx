@@ -5,6 +5,7 @@ import React from 'react'
 import { OverridableStringUnion } from '@mui/types'
 import { Variant } from '@mui/material/styles/createTypography'
 import { TypographyPropsVariantOverrides } from '@mui/material/Typography/Typography'
+import { useTranslation } from 'react-i18next'
 
 interface ContactBookingProps {
   variant: OverridableStringUnion<
@@ -14,11 +15,12 @@ interface ContactBookingProps {
 }
 
 const ContactBooking = (props: ContactBookingProps) => {
+  const { t } = useTranslation()
   return (
     <Box sx={{ margin: 1.25, display: 'flex', alignItems: 'center' }}>
       <MailOutline />
       <Typography variant={props.variant} sx={{ margin: 1.25 }}>
-        booking: couscousacolazione@gmail.com
+        {t('contact.booking')} couscousacolazione@gmail.com
       </Typography>
     </Box>
   )

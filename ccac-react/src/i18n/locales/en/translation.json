@@ -1,0 +1,104 @@
+{
+  "navigation": {
+    "home": "HOME",
+    "products": "Products",
+    "listen": "LISTEN",
+    "buy": "BUY",
+    "media": "MEDIA",
+    "contact": "CONTACT"
+  },
+  "cart": {
+    "empty": "your cart is empty, what are you waiting for?",
+    "total": "Total",
+    "payWithPaypal": "Pay with Paypal"
+  },
+  "shop": {
+    "noProducts": "No product available in the shop...",
+    "quantity": "Quantity"
+  },
+  "shipping": {
+    "method": "Shipping method"
+  },
+  "order": {
+    "order": "Order",
+    "status": "Status",
+    "orderDate": "Order date",
+    "shippingMethod": "Shipping method",
+    "shippingCost": "Shipping cost",
+    "cartCost": "Cart cost",
+    "totalCost": "Total cost",
+    "contactUs": "For anything, contact us"
+  },
+  "contact": {
+    "booking": "booking:",
+    "whatsapp": "whatsapp:"
+  },
+  "error": {
+    "notFound": "The page you are looking for cannot be found!",
+    "oops": "Oops!",
+    "unexpectedError": "Sorry, an unexpected error has occurred."
+  },
+  "home": {
+    "albumCoverAlt": "CousCous a colazione Alma LP cover"
+  },
+  "pressKit": {
+    "media": "Media",
+    "timeline": "Publication Timeline",
+    "almaPressKit": "Alma Press Kit",
+    "almaRassegnaStampa": "Alma Press Review",
+    "lucePressKit": "Luce Press Kit",
+    "luceRassegnaStampa": "Luce Press Review",
+    "description1": "CousCous a colazione is a project that blends pop sounds with world, electronic and hip-hop/R&B influences, creating a new sound that refuses to belong to a single style, giving life to POLYPOP, not a genre but a mutable expression of themselves.",
+    "description2": "The band was born in 2020, from the meeting between Mozambican singer Wilma Fatima Matsombe and producer Mattia Mennella. Completing the lineup are Gioele Cangini (guitar and backing vocals), Antonio Casalino (drums and drum pad) and Giacomo Cortesi (bass and synthbass).",
+    "description3": "CousCous a colazione's songs, in their early releases, are characterized by elements that draw origins from Mediterranean and African sounds, the culmination of this sound is reached with the EP \"Luce\" (2023)",
+    "description4": "The Band's sound then evolves with the Album \"Alma\" (2026) going in a darker and more melancholic direction, more R&B and Dark influences, always mixing electronic sounds, typical of their POLYPOP.",
+    "description5": "After the release of the EP \"Luce\" (2023), CousCous a colazione really start to make themselves heard, passing through Afrobix Festival, Memorabilia Festival, Festival del Suono Buono, A Cielo Aperto Festival, Bada Fest, Barezzi Festival, Sghetto Club, Argo 16, Covo Club, Binario69, Cisim, Bravo Caffè, Hanabi, Arena delle Balle di Paglia, La Tenda Club, Bronson Club, Vibra Club, Bachelite Club, Off Topic, Vivi Fortezza, Rumors, Rumagna Unite up to Es Gremi in Palma Di Maiorca.",
+    "timeline1": "01/08/26: Alma (LP)",
+    "timeline2": "10/23/25: Una vita a tre (single)",
+    "timeline3": "09/08/25: Arco-íris (single)",
+    "timeline4": "06/19/25: Sempre solə (single)",
+    "timeline5": "05/16/25: Secoli (single)",
+    "timeline6": "06/16/23: Luce (EP)",
+    "timeline7": "09/22/23: Conquista (single)"
+  },
+  "almaPressKit": {
+    "pressKit": "PRESS KIT",
+    "alma": "Alma",
+    "newLP": "the new LP by CousCous a colazione",
+    "listenNow": "Listen now to the new LP \"ALMA\"",
+    "tracklist": "Tracklist",
+    "downloadArtwork": "Download Artwork",
+    "downloadPhotoPress": "Download PhotoPress",
+    "downloadLyrics": "Download Lyrics",
+    "description1": "\"Alma\" was born after two years of pause and deep reflection, time necessary to find ourselves again, to question ourselves about our essence and the meaning of feeling alive.",
+    "description2": "The title, which in Portuguese means \"soul\", contains the heart of the album: an inner search that develops in two acts.",
+    "description3": "The first act is an inner dialogue, an intimate journey to discover oneself and one's own strength. A search for the hidden light that emerges only when we stop and learn to really listen to ourselves.",
+    "description4": "In the second act, however, the interiority finds a way to come out into the open, towards those around us, towards bonds that we build and that define us. Towards relationships that exist, resist, that transform or dissolve, but that always leave a deep mark on what we are.",
+    "description5": "Uniting the two moments is \"Alma\", the track that gives the album its name. A sonic and spiritual manifesto, where the search for the soul culminates in an awareness expressed in the mantra \"Aqui estou\" — \"Here I am\".",
+    "description6": "From a musical point of view, Alma embraces darker and more introspective sounds, a mirror of the process of reflection and disillusionment that accompanies every path of growth. It is an album that is not afraid to show itself vulnerable, but draws its most authentic strength precisely from that fragility.",
+    "author": "Author and performer:",
+    "producer": "Producer:",
+    "mixMaster": "Mix & Master:",
+    "coverPhoto": "Cover photo:",
+    "photoShooting": "Photo shooting:",
+    "visualVideos": "Visual videos:",
+    "promotion": "Promotion:",
+    "info": "Info:",
+    "couscousAlma": "CousCous a colazione - Alma"
+  },
+  "lucePressKit": {
+    "pressKit": "PRESS KIT",
+    "luce": "Luce",
+    "newEP": "the new EP by CousCous a colazione",
+    "listenNow": "Listen now to the new EP \"LUCE\"",
+    "downloadPhotoPress": "Download PhotoPress",
+    "downloadLyrics": "Download Lyrics",
+    "productionCredits": "All tracks from the EP \"Luce\" were written by CousCous a colazione and produced by Mattia Mennella.",
+    "mixMaster": "Mix and master were handled by Ivano Giovedì.",
+    "photography": "Photography and artwork are by Martina Platone.",
+    "contribution": "The EP was made with the contribution of Centro Musica Modena (for the Encoder call).",
+    "releaseInfo": "Luce is the new EP by CousCous a colazione, available from Friday, October 20th on radio rotation and on all digital streaming platforms.",
+    "introspectiveJourney": "Preceded by the single Conquista, Luce is the culmination of an introspective journey in search of ourselves, during which CousCous a colazione interpret the concept of light in different ways, which permeates and binds together all the tracks of the new EP: in \"Luz\", light has a positive value and is understood as that lucid moment, in the frenetic modern life where nothing is easy and everything seems ephemeral, in which we understand that it is necessary to stop for a moment, neglect superficiality and focus on what is real and concrete.",
+    "trackInterpretations": "In \"Io sarei qui\", light is synonymous with an unexpected love that radiates the soul and heart, like an inner push that moves human feelings and emotions. In the track \"Misake\" light is acceptance in the face of uncertainty and chaos in which we are daily wrapped and sucked in. \"Conquista\" is an encouragement to never give up, to always get back up and continue fighting in search of the ultimate goal, the proverbial light at the end of the tunnel."
+  }
+}

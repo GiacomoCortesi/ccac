@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { IOrder } from '../../models/order'
 import { useGetCart } from '../../services/api-cart-service'
 import {
@@ -11,17 +11,18 @@ import DrawerAppBar from '../AppBar/AppBar'
 import './PayPal.css'
 import Loading from '../Loading/Loading'
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
+import { useLocalizedNavigate } from '../../hooks/useLocalizedNavigate'
 
 const PayPal = (props: any) => {
   const { data, error, isLoading } = useGetCart()
   const createOrderTrigger = useCreateOrder().trigger
   const completeOrderTrigger = useCompleteOrder().trigger
-  const navigate = useNavigate()
+  const navigate = useLocalizedNavigate()
 
   let orderID = ''
 
   const { state } = useLocation()
-  const { shippingMethod } = state
+  const { shippingMethod } = state || {}
 
   const onApprove = (data: any) => {
     //@ts-ignore

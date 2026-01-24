@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import { TypographyPropsVariantOverrides } from '@mui/material/Typography/Typography'
 import { Variant } from '@mui/material/styles/createTypography'
 import { OverridableStringUnion } from '@mui/types'
+import { useTranslation } from 'react-i18next'
 
 interface ContactWAProps {
   variant: OverridableStringUnion<
@@ -12,11 +13,12 @@ interface ContactWAProps {
   >
 }
 const ContactWA = (props: ContactWAProps) => {
+  const { t } = useTranslation()
   return (
     <Box sx={{ margin: 1.25, display: 'flex', alignItems: 'center' }}>
       <WhatsApp />
       <Typography variant={props.variant} sx={{ margin: 1.25 }}>
-        whatsapp: +39 3341201715
+        {t('contact.whatsapp')} +39 3341201715
       </Typography>
     </Box>
   )

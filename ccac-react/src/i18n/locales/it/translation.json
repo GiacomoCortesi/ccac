@@ -1,0 +1,104 @@
+{
+  "navigation": {
+    "home": "HOME",
+    "products": "Prodotti",
+    "listen": "ASCOLTA",
+    "buy": "COMPRA",
+    "media": "MEDIA",
+    "contact": "CONTATTI"
+  },
+  "cart": {
+    "empty": "non hai ancora messo nulla nel carrello, cosa aspetti?",
+    "total": "Totale",
+    "payWithPaypal": "Paga con Paypal"
+  },
+  "shop": {
+    "noProducts": "Nessun prodotto disponibile nello shop...",
+    "quantity": "Quantità"
+  },
+  "shipping": {
+    "method": "Metodo di spedizione"
+  },
+  "order": {
+    "order": "Ordine",
+    "status": "Stato",
+    "orderDate": "Data ordine",
+    "shippingMethod": "Metodo di spedizione",
+    "shippingCost": "Spesa spedizione",
+    "cartCost": "Spesa carrello",
+    "totalCost": "Spesa complessiva",
+    "contactUs": "Per qualsiasi cosa, contattaci"
+  },
+  "contact": {
+    "booking": "booking:",
+    "whatsapp": "whatsapp:"
+  },
+  "error": {
+    "notFound": "La pagina che stai cercando non può essere trovata!",
+    "oops": "Oops!",
+    "unexpectedError": "Spiacenti, si è verificato un errore imprevisto."
+  },
+  "home": {
+    "albumCoverAlt": "CousCous a colazione Alma LP cover"
+  },
+  "pressKit": {
+    "media": "Media",
+    "timeline": "Timeline Pubblicazioni",
+    "almaPressKit": "Alma Press Kit",
+    "almaRassegnaStampa": "Alma Rassegna Stampa",
+    "lucePressKit": "Luce Press Kit",
+    "luceRassegnaStampa": "Luce Rassegna Stampa",
+    "description1": "I CousCous a colazione sono un progetto che fonde sonorità pop a influenze world, elettroniche e hip-hop/R&B, creando una nuova sonorità che rifiuta di appartenere a un solo stile, dando vita al POLYPOP, non un genere ma mutevole espressione di loro stessi.",
+    "description2": "La nascita della band risale al 2020, dall'incontro tra la cantante mozambicana Wilma Fatima Matsombe ed il produttore Mattia Mennella. A completare la formazione si aggiungono Gioele Cangini (chitarra e cori), Antonio Casalino (batteria e drum pad) e Giacomo Cortesi (basso e synthbass).",
+    "description3": "I brani dei CousCous a colazione, nelle prime pubblicazioni, sono caratterizzati da elementi che traggono origini dal sound mediterraneo e dall'Africa, il culmine di questa sonorità si ha con l'EP \"Luce\" (2023)",
+    "description4": "Il sound della Band poi si evolve con l'Album \"Alma\" (2026) andando in una direzione più cupa e malinconica, influenze più R&B e Dark, mescolando sempre sonorità elettroniche, tipiche del loro POLYPOP.",
+    "description5": "Dopo la pubblicazione dell'EP \"Luce\" (2023), i Couscous a colazione iniziano a farsi sentire davvero passando per Afrobix Festival, Memorabilia Festival, Festival del Suono Buono, A Cielo Aperto Festival, Bada Fest, Barezzi Festival, Sghetto Club, Argo 16, Covo Club, Binario69, Cisim, Bravo Caffè, Hanabi, Arena delle Balle di Paglia, La Tenda Club, Bronson Club, Vibra Club, Bachelite Club, Off Topic, Vivi Fortezza, Rumors, Rumagna Unite fino a Es Gremi a Palma Di Maiorca.",
+    "timeline1": "08/01/26: Alma (LP)",
+    "timeline2": "23/10/25: Una vita a tre (singolo)",
+    "timeline3": "08/09/25: Arco-íris (singolo)",
+    "timeline4": "19/06/25: Sempre solə (singolo)",
+    "timeline5": "16/05/25: Secoli (singolo)",
+    "timeline6": "16/06/23: Luce (EP)",
+    "timeline7": "22/09/23: Conquista (singolo)"
+  },
+  "almaPressKit": {
+    "pressKit": "PRESS KIT",
+    "alma": "Alma",
+    "newLP": "il nuovo LP dei CousCous a colazione",
+    "listenNow": "Ascolta ora il nuovo LP \"ALMA\"",
+    "tracklist": "Tracklist",
+    "downloadArtwork": "Download Artwork",
+    "downloadPhotoPress": "Download PhotoPress",
+    "downloadLyrics": "Download Lyrics",
+    "description1": "\"Alma\" nasce dopo due anni di pausa e profonda riflessione, tempo necessario per ritrovarci, interrogarci sulla nostra essenza e sul significato di sentirsi vivi.",
+    "description2": "Il titolo, che in portoghese significa \"anima\", racchiude il cuore del disco: una ricerca interiore che si sviluppa in due atti.",
+    "description3": "Il primo atto è un dialogo interiore, un viaggio intimo alla scoperta di se stessi e della propria forza. Una ricerca della luce nascosta che emerge solo quando ci fermiamo e impariamo ad ascoltarci davvero.",
+    "description4": "Nel secondo atto invece l'interiorità trova uno spiraglio per uscire allo scoperto, verso chi ci circonda, verso legami che costruiamo e che ci definiscono. Verso relazioni che esistono, resistono, che si trasformano o si dissolvono, ma che lasciano sempre un segno profondo in ciò che siamo.",
+    "description5": "A unire i due momenti c'è \"Alma\", il brano che dà il nome al disco. Un manifesto sonoro e spirituale, dove la ricerca dell'anima culmina in una presa di coscienza espressa nel mantra \"Aqui estou\" — \"Eccomi qui\".",
+    "description6": "Dal punto di vista musicale, Alma abbraccia sonorità più cupe e introspettive, specchio del processo di riflessione e disillusione che accompagna ogni percorso di crescita. È un disco che non ha paura di mostrarsi vulnerabile, ma che proprio da quella fragilità trae la sua forza più autentica.",
+    "author": "Autore e interprete:",
+    "producer": "Produttore:",
+    "mixMaster": "Mix & Master:",
+    "coverPhoto": "Cover photo:",
+    "photoShooting": "Photo shooting:",
+    "visualVideos": "Visual videos:",
+    "promotion": "Promozione:",
+    "info": "Info:",
+    "couscousAlma": "CousCous a colazione - Alma"
+  },
+  "lucePressKit": {
+    "pressKit": "PRESS KIT",
+    "luce": "Luce",
+    "newEP": "il nuovo EP dei CousCous a colazione",
+    "listenNow": "Ascolta ora il nuovo EP \"LUCE\"",
+    "downloadPhotoPress": "Download PhotoPress",
+    "downloadLyrics": "Download Lyrics",
+    "productionCredits": "Tutti i brani dell'EP \"Luce\" sono stati scritti dai CousCous a colazione e prodotti da Mattia Mennella.",
+    "mixMaster": "Il mix ed il master sono stati curati da Ivano Giovedì.",
+    "photography": "Le fotografie e l'artwork sono di Martina Platone.",
+    "contribution": "L'EP è stato realizzato con il contributo di Centro Musica Modena (per il bando Encoder).",
+    "releaseInfo": "Luce è il nuovo EP dei CousCous a colazione, disponibile da venerdì 20 ottobre in rotazione radiofonica e su tutte le piattaforme di streaming digitale.",
+    "introspectiveJourney": "Anticipato dal singolo Conquista, Luce è il punto d'arrivo di un viaggio introspettivo alla ricerca di noi stessi durante il quale i CousCous a colazione interpretano in diverse accezioni il concetto di luce, che permea e fa da collante tra tutti i brani del nuovo EP: in \"Luz\", la luce ha un valore positivo e viene intesa come quel momento lucido, nella frenetica vita moderna dove niente è facile e tutto pare effimero, in cui capiamo che è necessario fermarci un momento, trascurare la superficialità e concentrarci su ciò che è reale e concreto.",
+    "trackInterpretations": "In \"Io sarei qui\", la luce è sinonimo un amore inaspettato che irradia l'animo ed il cuore, come una spinta interiore che muove i sentimenti e le emozioni umane. Nel brano \"Misake\" la luce è accettazione a fronte dell'incertezza e del caos in cui siamo quotidianamente avvolti e risucchiati. \"Conquista\" è un incoraggiamento a non arrendersi mai, a rialzarsi sempre e continuare a lottare alla ricerca del fine ultimo, la proverbiale luce in fondo al tunnel."
+  }
+}
