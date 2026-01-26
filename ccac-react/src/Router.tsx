@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createBrowserRouter, Navigate, useLocation } from 'react-router-dom'
 import Cart from './components/Cart/Cart'
 import Contact from './components/Contact/Contact'
 import ErrorPage from './components/ErrorPage/ErrorPage'
@@ -24,6 +24,27 @@ const getDefaultLanguage = (): string => {
   if (typeof window === 'undefined') return 'it'
   const browserLang = navigator.language || navigator.languages?.[0] || 'it'
   return browserLang.startsWith('it') ? 'it' : browserLang.startsWith('en') ? 'en' : 'it'
+}
+
+// Component to redirect non-prefixed routes to /it/{path}
+const LanguageRedirect = () => {
+  const location = useLocation()
+  const pathname = location.pathname
+  
+  // Skip admin and login routes - these should be handled by their specific routes
+  // If we're here, it means the route doesn't exist, so show error
+  if (pathname.startsWith('/admin') || pathname.startsWith('/login')) {
+    return <ErrorPage />
+  }
+  
+  // Skip if already has language prefix - this shouldn't happen in catch-all,
+  // but if it does, show error to prevent infinite redirects
+  if (pathname.match(/^\/(it|en)(\/|$)/)) {
+    return <ErrorPage />
+  }
+  
+  // Redirect to /it + pathname
+  return <Navigate to={`/it${pathname}`} replace />
 }
 
 export const router = createBrowserRouter([
@@ -79,11 +100,23 @@ export const router = createBrowserRouter([
         element: <PressKit />,
       },
       {
+        path: 'presskit',
+        element: <PressKit />,
+      },
+      {
         path: 'media/alma-presskit',
         element: <AlmaPressKit />,
       },
       {
+        path: 'presskit/alma-presskit',
+        element: <AlmaPressKit />,
+      },
+      {
         path: 'media/luce-presskit',
+        element: <LucePressKit />,
+      },
+      {
+        path: 'presskit/luce-presskit',
         element: <LucePressKit />,
       },
       {
@@ -101,10 +134,10 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  // Catch-all route for root-level unmatched paths
+  // Catch-all route for root-level unmatched paths - redirects to /it/{path}
   {
     path: '*',
-    element: <Navigate to={`/${getDefaultLanguage()}`} replace />,
+    element: <LanguageRedirect />,
   },
   // Admin routes (no language prefix)
   {

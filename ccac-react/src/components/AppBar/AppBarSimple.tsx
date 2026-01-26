@@ -17,7 +17,8 @@ const AppBarSimple = () => {
   const location = useLocation()
   const cleanPath = getPathWithoutLanguage(location.pathname)
   const isHomePage = cleanPath === '/' || cleanPath === '/home'
-  const isMediaChildPage = cleanPath.startsWith('/media/') && cleanPath !== '/media'
+  const isMediaChildPage = (cleanPath.startsWith('/media/') && cleanPath !== '/media') || 
+                           (cleanPath.startsWith('/presskit/') && cleanPath !== '/presskit')
 
   return (
     <Fragment>
