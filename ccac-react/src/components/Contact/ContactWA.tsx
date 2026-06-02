@@ -18,7 +18,7 @@ const ContactWA = (props: ContactWAProps) => {
     <Box sx={{ margin: 1.25, display: 'flex', alignItems: 'center' }}>
       <WhatsApp />
       <Typography variant={props.variant} sx={{ margin: 1.25 }}>
-        {t('contact.whatsapp')} +39 3341201715
+        {t('contact.whatsapp')} +39 3391348111
       </Typography>
     </Box>
   )

@@ -1,0 +1,25 @@
+services:
+  frontend:
+    ports:
+      - "8080:80"
+    volumes:
+      - ./ccac-react/Caddyfile.dev:/etc/caddy/Caddyfile:ro
+
+  mongo-express:
+    image: mongo-express
+    container_name: ccac-mongo-express
+    environment:
+      - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_EXPRESS_USERNAME-admin}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASSWORD-admin}
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGODB_ROOT_USERNAME-root}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGODB_ROOT_PASSWORD-password}
+    ports:
+      - "127.0.0.1:8081:8081"
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    networks:
+      - ccac-net
+

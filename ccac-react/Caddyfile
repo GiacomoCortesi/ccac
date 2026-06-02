@@ -1,0 +1,22 @@
+couscousacolazione.com www.couscousacolazione.com {
+	encode zstd gzip
+
+	handle_path /api/* {
+		rewrite * /v1.0{path}
+		reverse_proxy backend:80
+	}
+
+	handle {
+		root * /srv
+
+		@assets path /assets/*
+		header @assets Cache-Control "public, max-age=31536000, immutable"
+
+		@rootStatic path /manifest.json /robots.txt /ccac_luce.ico
+		header @rootStatic Cache-Control "public, max-age=31536000, immutable"
+
+		try_files {path} /index.html
+		file_server
+	}
+}
+

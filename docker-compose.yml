@@ -1,0 +1,57 @@
+services:
+  frontend:
+    container_name: ccac-frontend
+    build:
+      context: ./ccac-react
+    restart: unless-stopped
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - ccac-net
+    depends_on:
+      - backend
+
+  backend:
+    container_name: ccac-backend
+    build:
+      context: ./ccac-go
+    environment:
+      - CCAC_HOST=${CCAC_HOST-0.0.0.0}
+      - CCAC_PORT=${CCAC_PORT-80}
+      - CCAC_DSN=${CCAC_DSN-mongodb://ccac:password@mongo:27017}
+      - PAYPAL_CLIENT_ID=${PAYPAL_CLIENT_ID-YOURPAYPALCLIENTID}
+      - PAYPAL_CLIENT_SECRET=${PAYPAL_CLIENT_SECRET-YOURPAYPALCLIENTSECRET}
+    restart: always
+    networks:
+      - ccac-net
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: ccac-mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./ccac-go/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_CCAC_DB-ccac}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_ROOT_USERNAME-root}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_ROOT_PASSWORD-password}
+      - MONGO_CCAC_USERNAME=${MONGO_CCAC_USERNAME-ccac}
+      - MONGO_CCAC_PASSWORD=${MONGO_CCAC_PASSWORD-password}
+    networks:
+      - ccac-net
+
+networks:
+  ccac-net:
+    driver: bridge
+
+volumes:
+  mongo-data:
+  caddy-data:
+  caddy-config:
+

@@ -1,2 +1,19 @@
+.DS_Store
+
+# Local env files
+.env
+**/.env
+
+# Local TLS artifacts (should never be committed)
+*.pem
+ccac-react/*.pem
+ccac-react/key.pem
+ccac-react/cert.pem
+ccac-react/dhparam.pem
+
+# ACME / cert storage (generated at runtime)
+ccac-react/data/
+data/
+
 .idea
 .vscode

@@ -32,22 +32,4 @@ CCAC_DSN
 ```
 NOTE: Make sure to use sandbox Paypal client ID and secret when in development, and to run with -debug flag set
 
-## Docker Compose
-By default the application creates and use a default ccac mongodb user with permissions restricted to the ccac database.
-By default two mongodb users are created:
- - root/password - admin user
- - ccac/password - user with permissions on ccac database only
-
-For production use, make sure to configure docker-compose environment variables with proper secure credentials.
-
-Run with docker compose:
-```
-docker-compose up -d
-```
-
-NOTE: Make sure the mongodb volume has proper permissions for the mongo docker user:
-```
-chown 1001:1001 /var/ccac/mongodb/
-```
-
 
