@@ -15,6 +15,8 @@ const Footer = () => {
         flexDirection: 'row',
         display: 'flex',
         position: 'fixed',
+        zIndex: 1300,
+        pointerEvents: 'auto',
         alignItems: 'center',
         color: theme.palette.text.primary,
       }}

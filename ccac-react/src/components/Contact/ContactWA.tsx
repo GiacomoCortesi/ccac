@@ -15,7 +15,14 @@ interface ContactWAProps {
 const ContactWA = (props: ContactWAProps) => {
   const { t } = useTranslation()
   return (
-    <Box sx={{ margin: 1.25, display: 'flex', alignItems: 'center' }}>
+    <Box
+      sx={{
+        margin: 1.25,
+        display: 'flex',
+        alignItems: 'center',
+        cursor: 'pointer',
+      }}
+    >
       <WhatsApp />
       <Typography variant={props.variant} sx={{ margin: 1.25 }}>
         {t('contact.whatsapp')} +39 3391348111
