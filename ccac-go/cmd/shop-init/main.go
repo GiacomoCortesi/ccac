@@ -3,19 +3,33 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"flag"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
+	"strings"
 
-	"github.com/ccac-go/controller"
 	"github.com/ccac-go/domain"
 	"gopkg.in/yaml.v3"
 )
 
+func normalizeBase(base string) (string, error) {
+	trimmed := strings.TrimRight(strings.TrimSpace(base), "/")
+	u, err := url.Parse(trimmed)
+	if err != nil {
+		return "", err
+	}
+	if u.Scheme == "" {
+		return "", &url.Error{Op: "parse", URL: base, Err: errors.New("missing URL scheme (expected http or https)")}
+	}
+	return u.String(), nil
+}
+
 func main() {
 	var f = flag.String("file", "shop.yaml", "YAML file containing shop information")
-	var host = flag.String("host", "http://127.0.0.1:80", "API host base url endpoint")
+	var base = flag.String("base", "http://127.0.0.1:80/api", "API base url (e.g. https://couscousacolazione.com/v1.0 or https://couscousacolazione.com/api)")
 	flag.Parse()
 
 	file, err := os.OpenFile(*f, os.O_RDWR, 0600)
@@ -31,8 +45,15 @@ func main() {
 		log.Fatalf("invalid shop file: %s", err)
 	}
 
-	baseUrl := *host + "/" + controller.Version
-	productUrl := baseUrl + controller.ProductEndpoint
+	baseURL, err := normalizeBase(*base)
+	if err != nil {
+		log.Fatalf("invalid base: %q, error: %v", *base, err)
+	}
+
+	productUrl, err := url.JoinPath(baseURL, "/product")
+	if err != nil {
+		log.Fatalf("error creating product URL from base: %s, error: %v", baseURL, err)
+	}
 	req, err := http.NewRequest(http.MethodDelete, productUrl, nil)
 	if err != nil {
 		log.Fatalf("error creating delete all product request to: %s, error: %s", req.URL.String(), err)
