@@ -2,8 +2,11 @@ package inmemrepo
 
 import (
 	"fmt"
-	"github.com/ccac-go/domain"
 	"sync"
+
+	"github.com/ccac-go/domain"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type orderRepository struct {
@@ -18,6 +21,10 @@ func NewOrderRepository() domain.OrderRepository {
 func (o orderRepository) Save(order domain.Order) (domain.Order, error) {
 	o.mu.Lock()
 	defer o.mu.Unlock()
+
+	if order.ID == "" {
+		order.ID = domain.IDFromString(primitive.NewObjectID().Hex())
+	}
 	o.orders[order.ID] = order
 	return o.orders[order.ID], nil
 }
@@ -39,11 +46,7 @@ func (o orderRepository) Get(id domain.ID) (domain.Order, error) {
 	if found {
 		return order, nil
 	}
-	_, err := o.getByUserID(id)
-	if err != nil {
-		return domain.Order{}, fmt.Errorf("missing order with id/token: %s", id)
-	}
-	return order, nil
+	return domain.Order{}, mongo.ErrNoDocuments
 }
 
 func (o orderRepository) getByUserID(userID domain.ID) (domain.Order, error) {

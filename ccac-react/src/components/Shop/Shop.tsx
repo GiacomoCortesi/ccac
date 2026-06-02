@@ -39,7 +39,20 @@ export default function Shop() {
       <AppBar />
       {isLoading && <Loading />}
       {error && <ErrorDisplay error={error} />}
-      {data?.length === 0 && t('shop.noProducts')}
+      {data?.length === 0 && (
+        <Box
+          sx={{
+            minHeight: `calc(100vh - ${Number(theme.mixins.toolbar.minHeight ?? 64)}px)`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center',
+            px: 2,
+          }}
+        >
+          <Typography variant='body1'>{t('shop.noProducts')}</Typography>
+        </Box>
+      )}
       {data && (
         <ImageList cols={getImageListCols()}>
           {Array.isArray(data) &&

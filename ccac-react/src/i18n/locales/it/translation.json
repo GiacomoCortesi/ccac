@@ -10,14 +10,19 @@
   "cart": {
     "empty": "non hai ancora messo nulla nel carrello, cosa aspetti?",
     "total": "Totale",
-    "payWithPaypal": "Paga con Paypal"
+    "payWithPaypal": "Paga con Paypal",
+    "goToShop": "Vai allo shop"
   },
   "shop": {
     "noProducts": "Nessun prodotto disponibile nello shop...",
-    "quantity": "Quantità"
+    "quantity": "Quantità",
+    "size": "Taglia",
+    "color": "Colore"
   },
   "shipping": {
-    "method": "Metodo di spedizione"
+    "method": "Metodo di spedizione",
+    "deliveryInWorkingDays": "Consegna in {{days}} giorni lavorativi",
+    "cost": "Costo"
   },
   "order": {
     "order": "Ordine",

@@ -30,6 +30,11 @@ export default function ShopItem() {
   const error = productResponse.error
   const isLoading = productResponse.isLoading
   const { t } = useTranslation()
+  const formatColorLabel = (raw: unknown) => {
+    const s = String(raw ?? '')
+    if (s.length === 0) return s
+    return s[0].toUpperCase() + s.slice(1)
+  }
   const [quantity, setQuantity] = React.useState('1')
   const [size, setSize] = React.useState(
     data?.options?.available_sizes ? data.options.available_sizes[0] : 'M'
@@ -43,6 +48,7 @@ export default function ShopItem() {
   const [snackBarMessage, setSnackBarMessage] = React.useState<string>('')
 
   const { trigger } = useAddToCart()
+  const selectSx = { mt: 1 }
 
   const onCartButtonClick = () => {
     let productVariation: IProduct | undefined
@@ -128,13 +134,19 @@ export default function ShopItem() {
               cols={4}
               sx={{
                 margin: 1,
+                marginLeft: 4,
                 width: 400,
                 transform: 'translateZ(0)',
               }}
               gap={5}
             >
               {data.images && (
-                <ImageListItem key={'main_image'} cols={4} rows={4}>
+                <ImageListItem
+                  key={'main_image'}
+                  cols={4}
+                  rows={4}
+                  sx={{ borderRadius: 4, overflow: 'hidden' }}
+                >
                   <img
                     style={{ maxWidth: 450 }}
                     {...srcset(data.images[selectedImage], 100, 100, 4, 4)}
@@ -146,12 +158,20 @@ export default function ShopItem() {
               {data.images &&
                 data.images.map((image: any, index: any) => {
                   return (
-                    <ImageListItem key={'image' + index} cols={1} rows={1}>
+                    <ImageListItem
+                      key={'image' + index}
+                      cols={1}
+                      rows={1}
+                      sx={{
+                        borderRadius: 3,
+                        overflow: 'hidden',
+                        border: '3px solid #ffffff',
+                      }}
+                    >
                       <img
                         style={{
                           maxWidth: 100,
                           cursor: 'pointer',
-                          border: '3px solid #ffffff',
                         }}
                         onClick={() => {
                           setSelectedImage(index)
@@ -185,12 +205,14 @@ export default function ShopItem() {
                   {data.price.value} {data.price.currency}
                 </Typography>
               )}
-              <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-label'>{t('shop.quantity')}</InputLabel>
+              <FormControl fullWidth margin='dense'>
+                <InputLabel id='quantity-select-label'>
+                  {t('shop.quantity')}
+                </InputLabel>
                 <Select
-                  sx={{ marginTop: '1.50em' }}
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
+                  sx={selectSx}
+                  labelId='quantity-select-label'
+                  id='quantity-select'
                   value={quantity}
                   label={t('shop.quantity')}
                   onChange={handleQuantityChange}
@@ -205,14 +227,14 @@ export default function ShopItem() {
               {Array.isArray(data.variations) &&
                 data.options &&
                 Array.isArray(data.options.available_sizes) && (
-                  <FormControl>
-                    <InputLabel id='size-select-label'>Size</InputLabel>
+                  <FormControl fullWidth margin='dense'>
+                    <InputLabel id='size-select-label'>{t('shop.size')}</InputLabel>
                     <Select
-                      sx={{ marginTop: '1.50em' }}
+                      sx={selectSx}
                       labelId='size-select-label'
                       id='size-select'
                       value={size}
-                      label='Size'
+                      label={t('shop.size')}
                       onChange={handleSizeChange}
                     >
                       {data.options.available_sizes.map((res: any) => (
@@ -226,19 +248,19 @@ export default function ShopItem() {
               {Array.isArray(data.variations) &&
                 data.options &&
                 Array.isArray(data.options.available_colors) && (
-                  <FormControl>
-                    <InputLabel id='demo-simple-select-label'>Color</InputLabel>
+                  <FormControl fullWidth margin='dense'>
+                    <InputLabel id='color-select-label'>{t('shop.color')}</InputLabel>
                     <Select
-                      sx={{ marginTop: '1.50em' }}
-                      labelId='demo-simple-select-label'
-                      id='demo-simple-select'
+                      sx={selectSx}
+                      labelId='color-select-label'
+                      id='color-select'
                       value={color}
-                      label='Color'
+                      label={t('shop.color')}
                       onChange={handleColorChange}
                     >
                       {data.options.available_colors.map((res: any) => (
                         <MenuItem key={res} value={res}>
-                          {res}
+                          {formatColorLabel(res)}
                           {/*<Box sx={{ bgcolor: res, width:"30px", height: "30px", border: "solid white 2px", margin: "0.25em"}}></Box>*/}
                         </MenuItem>
                       ))}

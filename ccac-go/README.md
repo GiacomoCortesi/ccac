@@ -29,7 +29,26 @@ CCAC_HOST
 CCAC_PORT
 // data source connection string, make sure to correctly use mongodb connection string syntax
 CCAC_DSN
+// repository backend selection: mongo|inmem (default: mongo)
+CCAC_REPO
 ```
 NOTE: Make sure to use sandbox Paypal client ID and secret when in development, and to run with -debug flag set
+
+### Run locally
+#### In-memory repositories (no Mongo required)
+```
+CCAC_HOST=127.0.0.1 CCAC_PORT=8080 CCAC_REPO=inmem go run ./cmd/web -debug
+```
+
+#### MongoDB repositories
+```
+CCAC_HOST=127.0.0.1 CCAC_PORT=8080 CCAC_DSN="mongodb://ccac:password@127.0.0.1:27017" CCAC_REPO=mongo go run ./cmd/web -debug
+```
+
+#### CLI flags
+Env variables can be overridden via flags:
+```
+go run ./cmd/web -debug -host 127.0.0.1 -port 8080 -repo inmem
+```
 
 

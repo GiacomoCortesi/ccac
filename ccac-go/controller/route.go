@@ -18,7 +18,9 @@ func (a *App) routes() {
 	NoMethods(a.router)
 
 	store := cookie.NewStore([]byte("secret"))
-	store.Options(sessions.Options{MaxAge: 3600 * 24})
+	// Path=/ ensures the session cookie is sent for all API routes.
+	// (Host consistency between UI and API is still required for the cookie to be included by browsers.)
+	store.Options(sessions.Options{MaxAge: 3600 * 24, Path: "/"})
 	a.router.Use(sessions.Sessions("session", store))
 
 	a.router.GET("/version", a.GetVersionHandler())

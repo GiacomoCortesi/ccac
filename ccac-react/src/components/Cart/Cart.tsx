@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import {
   Divider,
   List,
+  Paper,
   Typography,
   useMediaQuery,
   useTheme,
@@ -14,7 +15,6 @@ import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import AppBar from '../AppBar/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import { useNavigate } from 'react-router-dom'
 import Shipping from '../Shipping/Shipping'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedNavigate } from '../../hooks/useLocalizedNavigate'
@@ -62,43 +62,97 @@ export default function Cart() {
       {isLoading && <Loading />}
       {error && <ErrorDisplay error={error} />}
       {data && (
-        <Box sx={{ marginLeft: 2, marginRight: 2 }}>
+        <Box
+          sx={{
+            mx: { xs: 0, sm: 2 },
+            px: { xs: 1, sm: 0 },
+          }}
+        >
           {isLoading && <Loading />}
           {isEmptyCart(data) ? (
             <Box
               sx={{
-                minHeight: 225,
+                minHeight: `calc(100vh - ${Number(theme.mixins.toolbar.minHeight ?? 64)}px)`,
                 display: 'flex',
+                flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
+                gap: 2,
+                textAlign: 'center',
               }}
             >
               <Typography variant={matchesMD ? 'h6' : 'h4'}>
                 {t('cart.empty')}
               </Typography>
+              <Button variant='outlined' onClick={() => navigate('/products')}>
+                <Typography variant={matchesMD ? 'body1' : 'h6'}>
+                  {t('cart.goToShop')}
+                </Typography>
+              </Button>
             </Box>
           ) : (
-            <List>{cartItems}</List>
+            <>
+              <List>{cartItems}</List>
+              <Box
+                sx={{
+                  mt: 2,
+                  mb: 2,
+                  mx: { xs: 0, sm: 2 },
+                }}
+              >
+                <Paper
+                  variant='outlined'
+                  sx={{
+                    p: { xs: 1.5, sm: 2 },
+                    borderRadius: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1.5,
+                  }}
+                >
+                  {data?.shipping_options && (
+                    <Shipping
+                      shippingMethod={shippingMethod}
+                      shippingOptions={data.shipping_options}
+                      fromShippingComponent={fromShippingComponent}
+                    />
+                  )}
+
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'baseline',
+                      justifyContent: 'space-between',
+                      gap: 2,
+                      mt: 0.5,
+                    }}
+                  >
+                    <Typography variant='body1' color='text.secondary'>
+                      {t('cart.total')}
+                    </Typography>
+                    <Typography variant={matchesMD ? 'h6' : 'h5'}>
+                      {data?.total?.value} {data?.total?.currency}
+                    </Typography>
+                  </Box>
+
+                  <Button
+                    onClick={handleClick}
+                    variant='contained'
+                    size={matchesMD ? 'large' : 'medium'}
+                    fullWidth={matchesMD}
+                    sx={{
+                      mt: 0.5,
+                      borderRadius: 2,
+                    }}
+                  >
+                    <Typography variant={matchesMD ? 'h6' : 'h5'}>
+                      {t('cart.payWithPaypal')}
+                    </Typography>
+                  </Button>
+                </Paper>
+              </Box>
+            </>
           )}
-          <Box margin={3}>
-            {data?.shipping_options && (
-              <Shipping
-                shippingMethod={shippingMethod}
-                shippingOptions={data.shipping_options}
-                fromShippingComponent={fromShippingComponent}
-              />
-            )}
-            <Typography marginBottom={3}>
-              {t('cart.total')}: {data?.total?.value} {data?.total?.currency}
-            </Typography>
-          </Box>
-          <Button
-            disabled={isEmptyCart(data)}
-            sx={{ marginLeft: 1.75 }}
-            onClick={handleClick}
-          >
-            <Typography variant={'h5'}>{t('cart.payWithPaypal')}</Typography>
-          </Button>
         </Box>
       )}
     </Fragment>
