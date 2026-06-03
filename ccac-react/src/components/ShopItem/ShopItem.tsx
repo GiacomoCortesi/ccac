@@ -121,7 +121,7 @@ export default function ShopItem() {
   }
 
   return (
-    <Box>
+    <Box sx={{ pb: { xs: 4, md: 0 } }}>
       <AppBar />
       {isLoading && <Loading />}
       {error && <ErrorDisplay error={error} />}
