@@ -127,15 +127,24 @@ export default function ShopItem() {
       {error && <ErrorDisplay error={error} />}
       {data && (
         <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              display: 'flex',
+              justifyContent: { xs: 'center', md: 'flex-start' },
+            }}
+          >
             <ImageList
               variant='quilted'
               rowHeight={100}
               cols={4}
               sx={{
                 margin: 1,
-                marginLeft: 4,
-                width: 400,
+                marginLeft: { xs: 0, md: 4 },
+                width: { xs: '100%', md: 400 },
+                maxWidth: 400,
                 transform: 'translateZ(0)',
               }}
               gap={5}
